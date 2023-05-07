@@ -28,3 +28,9 @@
       text-shadow: none;
   }
 }
+
+@media (max-width: 767px) {
+  .title {
+    margin-bottom: 40px;
+  }
+}

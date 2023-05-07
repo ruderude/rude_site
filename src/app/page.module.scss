@@ -1,3 +1,35 @@
 .title {
   color: red;
 }
+
+.parent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 30px;
+  height: 70vh;
+}
+
+.children {
+  color: white;
+}
+
+.block {
+  display: inline-block;
+}
+
+@media (max-width: 767px) {
+  .parent {
+    display: block;
+  }
+  
+  .children {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .children:nth-child(even) {
+    justify-content: flex-end;
+  }
+}

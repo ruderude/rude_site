@@ -12,13 +12,13 @@ export default function Header() {
   return (<>
     <br />
     <h1 className={`${styles.title} ${styles.neontext}`}>
-      <motion.div
+      {/* <motion.div
         animate={{ y: '0px' }}
         transition={{ type: 'spring', bounce: 0.5, delay: 0 }}
         initial={{ y: '-200px' }}
       >
         <span></span>
-      </motion.div>
+      </motion.div> */}
       {titleArray.map((char, index) => (
         <motion.div
           key={index}

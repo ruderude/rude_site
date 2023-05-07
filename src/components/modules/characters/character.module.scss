@@ -1,0 +1,153 @@
+// 会話風の吹き出し
+.parent {
+  display: flex;
+  justify-content: center;
+  margin: 0 2rem 1rem 1rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-height: 200px;
+}
+
+.character {
+  flex-basis: 20%;
+  max-width: 200px;
+  margin-right: 2rem;
+  cursor: pointer;
+}
+
+.comment {
+  position: relative;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  margin: 0 2rem;
+  flex-basis: 80%;
+}
+
+/*しっぽ共通*/
+.comment::after {
+  border: solid transparent;
+    content:'';
+    height:0;
+    width:0;
+    pointer-events:none;
+    position:absolute;
+    border-color: rgba(0, 0, 0, 0);
+    border-top-width:15px;
+    border-bottom-width:15px;
+    border-left-width:15px;
+    border-right-width:15px;
+    margin-top: -10px;
+    border-left-color:#fff;
+    left:100%;
+    top:70%;
+}
+
+.commentArea::after {
+  content: "|";
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .character {
+    margin: 0 1rem 0 0.5rem;
+  }
+
+  .comment {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*===================
+iPhoneのメッセージ風
+=====================*/
+/*フレームとフォント*/
+.kaiwa.imessage {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px 0;
+  border: 1px #ddd solid;
+  background: white;
+  font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","Helvetica Neue", "Lucida Sans Unicode", "Arial";
+  font-size: 16px;
+  color: #333;
+  line-height: 1.4;
+  overflow: hidden;
+}
+/*フキダシ共通*/
+.kaiwa.imessage .fukidasi {
+  position: relative;
+  display: inline-block;
+  max-width: 192px;
+  margin: 1px 10px 6px;
+  padding: 9px 14px;
+  border-radius: 19px;
+  overflow-wrap: break-word;
+  clear: both;
+  box-sizing: content-box;/*はてな用*/
+}
+/*しっぽをつけないとき*/
+.kaiwa.imessage .fukidasi.notail {
+  margin-bottom: 0;
+}
+/*フキダシ左*/
+.kaiwa.imessage .fukidasi.left {
+  float: left;
+  background: #e9e9ed;
+}
+/*フキダシ右*/
+.kaiwa.imessage .fukidasi.right {
+  float: right;
+  background: #2793fa;
+  color: white;
+}
+/*しっぽ共通*/
+.kaiwa.imessage .fukidasi::after {
+  position: absolute;
+  content: "";
+  width: 17px;
+  height: 17px;
+  bottom: 0;
+}
+/*しっぽ左*/
+.kaiwa.imessage .fukidasi.left::after {
+  left: -6px;
+  border-radius: 0px 0  17px 0px/ 0px 0 13px 0; 
+  box-shadow: -14px 2px 0 -3px #e9e9ed inset; 
+}
+/*しっぽ右*/
+.kaiwa.imessage .fukidasi.right::after {
+  right: -6px;
+  border-radius: 0px 0  0 17px/ 0px 0 0 13px; 
+  box-shadow: 14px 2px 0 -3px #2793fa inset; 
+}
+/*しっぽをつけないとき*/
+.kaiwa.imessage .fukidasi.notail::after {
+  content: none;
+}

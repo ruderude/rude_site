@@ -11,15 +11,17 @@ interface Params {
 }
 
 interface Props {
-  comment: string
   changeComment: () => void
+  comment: string
+  speed?: number
 }
 
 
 // キャラクターの名前をクラス名にしても良い
-export default function Character({ comment, changeComment }: Props) {
+export default function Character({ changeComment, comment }: Props) {
   const characterImg = '/images/character/kunshi_1_l-min.png'
   const commentArea = useRef<HTMLDivElement>(null!)
+  const [can, setCan] = useState<boolean>(true)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const params = {
     text: comment,
@@ -27,28 +29,37 @@ export default function Character({ comment, changeComment }: Props) {
   }
 
   const typewriter = async (params: Params) => {
-    commentArea.current.innerText = "";
-    let speed = params.speed;
-    let string = params.text.split("");
-    for (let index = 0; index < string.length; index++) {
-      // console.log(string[index])
-      if (index !== (string.length - 1)) {
-        setTimeout(() => {
-          commentArea.current.innerText += string[index]
-        }, speed * index);
-      } else {
-        setTimeout(() => {
-          commentArea.current.innerText += string[index]
-        }, speed * index);
+    return new Promise(resolve => {
+      commentArea.current.innerText = "";
+      let speed = params.speed;
+      let string = params.text.split("");
+      for (let index = 0; index < string.length; index++) {
+        // console.log(string[index])
+        if (index !== (string.length - 1)) {
+          setTimeout(() => {
+            commentArea.current.innerText += string[index]
+          }, speed * index);
+        } else {
+          setTimeout(() => {
+            commentArea.current.innerText += string[index]
+            resolve('end')
+          }, speed * index);
+        }
       }
-    }
+    });
+    
   }
 
   useEffect(() => {
-    typewriter(params).then(() => {
-      console.log('typewriter end')
-    })
-  }, [params])
+    if (can && params.text !== '') {
+      setCan(false)
+      typewriter(params).then((result) => {
+        console.log('typewriter end: ', result)
+        setCan(true)
+      })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params.text])
 
   return (<>
     <div className={`${styles.parent}`}>

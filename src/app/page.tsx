@@ -21,7 +21,7 @@ export default function Home() {
       <div>
         メインコンテンツ
       </div>
-      <Character comment={comment} changeComment={changeComment}></Character>
+      <Character changeComment={changeComment} comment={comment} ></Character>
     </main>
   )
 }

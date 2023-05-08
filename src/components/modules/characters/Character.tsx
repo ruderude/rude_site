@@ -51,7 +51,7 @@ export default function Character({ changeComment, comment }: Props) {
   }
 
   useEffect(() => {
-    if (can && params.text !== '') {
+    if (can && params.text) {
       setCan(false)
       typewriter(params).then((result) => {
         console.log('typewriter end: ', result)

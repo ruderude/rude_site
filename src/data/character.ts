@@ -9,3 +9,19 @@ export const characterComments = [
 
   朝は気持ちいいですね！`,
 ];
+
+export const whatComments = [
+  `What's Rude? とは、`,
+];
+
+export const menuComments = [
+  `メニューはこちらです。`,
+];
+
+export const blogComments = [
+  `ブログです。`
+];
+
+export const contactComments = [
+  `お問い合わせはこちらです。`
+];

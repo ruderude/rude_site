@@ -1,5 +1,3 @@
-"use client"
-
 import { useRef, useState, useEffect } from "react"
 import Image from 'next/image'
 import styles from './character.module.scss'
@@ -25,10 +23,6 @@ export default function Character({ changeComment, comment }: Props) {
   const params = {
     text: comment,
     speed: 50
-  }
-
-  const clickCharacter = () => {
-    changeComment("character")
   }
 
   const typewriter = async (params: Params) => {
@@ -68,7 +62,7 @@ export default function Character({ changeComment, comment }: Props) {
       <div className={`${styles.comment} word_turn`}>
         <div className={`${styles.commentArea}`} ref={commentArea}></div>
       </div>
-      <button id="character" className={`${styles.character}`} onClick={clickCharacter} >
+      <div id="character" className={`${styles.character}`} onClick={() => changeComment("character")} >
         <Image
           src={characterImg}
           alt="画像"
@@ -80,7 +74,7 @@ export default function Character({ changeComment, comment }: Props) {
             height: '100%',
           }}
         />
-      </button>
+      </div>
   </div>
   </>)
 }

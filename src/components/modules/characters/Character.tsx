@@ -1,8 +1,8 @@
 "use client"
 
 import { useRef, useState, useEffect } from "react"
-import styles from './character.module.scss'
 import Image from 'next/image'
+import styles from './character.module.scss'
 import { motion } from 'framer-motion';
 
 interface Params {
@@ -11,9 +11,8 @@ interface Params {
 }
 
 interface Props {
-  changeComment: () => void
+  changeComment: (type: string) => Promise<void>
   comment: string
-  speed?: number
 }
 
 
@@ -26,6 +25,10 @@ export default function Character({ changeComment, comment }: Props) {
   const params = {
     text: comment,
     speed: 50
+  }
+
+  const clickCharacter = () => {
+    changeComment("character")
   }
 
   const typewriter = async (params: Params) => {
@@ -47,7 +50,6 @@ export default function Character({ changeComment, comment }: Props) {
         }
       }
     });
-    
   }
 
   useEffect(() => {
@@ -66,9 +68,8 @@ export default function Character({ changeComment, comment }: Props) {
       <div className={`${styles.comment} word_turn`}>
         <div className={`${styles.commentArea}`} ref={commentArea}></div>
       </div>
-      <button className={`${styles.character}`} onClick={changeComment} >
+      <button id="character" className={`${styles.character}`} onClick={clickCharacter} >
         <Image
-          className={`${styles.characterImg}`}
           src={characterImg}
           alt="画像"
           width={400}

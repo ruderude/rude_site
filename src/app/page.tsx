@@ -16,7 +16,7 @@ export default function Home() {
   console.log('comment: ', comment)
 
   useEffect(() => {
-    changeComment(CommentType.Character)
+    changeComment(CommentType.character)
   }, [])
 
   return (
@@ -25,11 +25,11 @@ export default function Home() {
       <div className={styles.parent}>
         {
           contents.map((content, index) => {
-            // indexが偶数か奇数か
+            // indexが偶数か奇数か(CSSのため)
             const oddEvenType = index % 2 === 0
             return (
               <div className={styles.children} key={index}>
-                <Content content={content} type={oddEvenType} />
+                <Content content={content} type={oddEvenType} changeComment={changeComment} />
               </div>
             )
           })

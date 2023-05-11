@@ -1,23 +1,21 @@
 "use client"
 
 import { useState } from "react"
+import { characterComments } from "@/data/character"
+import { CommentType } from '@/types/types'
 
 export const useComment = () => {
   const [comment, setComment] = useState("");
-  const comments = [
-    "Hello world!!",
-  
-    `こんにちは！
-  
-    今日はいい天気ですね！`,
-  
-    `おはようございます。
-  
-    朝は気持ちいいですね！`,
-  ];
 
   // ランダムにコメントを返す関数
-  const changeComment = async () => {
+  const changeComment = async (event: any) => {
+    console.log("event", event)
+    let comments: string[] = [];
+    if (event === CommentType.Character) {
+      comments = characterComments
+    } else {
+      comments = characterComments
+    }
     await setComment(() => "")
     const random = Math.floor(Math.random() * comments.length)
     setComment(() => comments[random])

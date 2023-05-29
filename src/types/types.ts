@@ -1,8 +1,8 @@
 export const CommentType = {
   character: "character",
+  news: "news",
   what: "what",
   menu: "menu",
-  blog: "blog",
   contact: "contact",
 } as const;
 
@@ -12,6 +12,6 @@ export interface ContentProps {
     text: string
     image: string
   }
-  type: boolean
-  changeComment: (event: any) => void
+  oddEvenType: boolean
+  clickContent: (event: any) => void
 }

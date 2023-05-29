@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from "react"
 import Image from 'next/image'
 import styles from './character.module.scss'
 import { motion } from 'framer-motion';
+import { CommentType } from '@/types/types'
 
 interface Params {
   text: string
@@ -9,13 +10,13 @@ interface Params {
 }
 
 interface Props {
-  changeComment: (type: string) => Promise<void>
+  changeContent: (type: string) => Promise<void>
   comment: string
 }
 
 
 // キャラクターの名前をクラス名にしても良い
-export default function Character({ changeComment, comment }: Props) {
+export default function Character({ changeContent, comment }: Props) {
   const characterImg = '/images/character/kunshi_1_l-min.png'
   const commentArea = useRef<HTMLDivElement>(null!)
   const [can, setCan] = useState<boolean>(true)
@@ -62,7 +63,7 @@ export default function Character({ changeComment, comment }: Props) {
       <div className={`${styles.comment} word_turn`}>
         <div className={`${styles.commentArea}`} ref={commentArea}></div>
       </div>
-      <div id="character" className={`${styles.character}`} onClick={() => changeComment("character")} >
+      <div className={`${styles.character}`} onClick={() => changeContent(CommentType.character)} >
         <Image
           src={characterImg}
           alt="画像"

@@ -1,11 +1,12 @@
-import { useRef, useState, useEffect } from "react"
+import { useRef, useState, useEffect, memo } from "react"
 import Image from 'next/image'
 import styles from './content.module.scss'
 import { ContentProps } from '@/types/types'
 
-export default function Content({content, type, changeComment}: ContentProps) {
+// eslint-disable-next-line react/display-name
+export const Content = memo(({content, oddEvenType, clickContent}: ContentProps) => {
   return (<>
-    <div className={`${type ? styles.parent_left : styles.parent_right} ${styles.parent}`} onClick={() => changeComment(content.name)}>
+    <div className={`${oddEvenType ? styles.parent_left : styles.parent_right} ${styles.parent}`} onClick={() => clickContent(content.name)}>
       <div className={styles.image}>
         <Image
           src={content.image}
@@ -26,5 +27,5 @@ export default function Content({content, type, changeComment}: ContentProps) {
       </div>
     </div>
   </>)
-}
+})
 

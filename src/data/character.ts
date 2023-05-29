@@ -18,8 +18,8 @@ export const menuComments = [
   `メニューはこちらです。`,
 ];
 
-export const blogComments = [
-  `ブログです。`
+export const newsComments = [
+  `ニュースです。`
 ];
 
 export const contactComments = [

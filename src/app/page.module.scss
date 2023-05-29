@@ -11,7 +11,7 @@ $content_width_sp: 80%;
   align-items: center;
   box-sizing: border-box;
   margin: 0;
-  height: 70vh;
+  height: 50vh;
   width: 100%;
 }
 
@@ -19,10 +19,27 @@ $content_width_sp: 80%;
   width: $content_width_pc;
 }
 
+.contents {
+  margin: 0 2rem;
+  margin-bottom: 300px;
+}
+
+.scroll_top {
+  font-size: 3rem;
+  margin: 3rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll_btn {
+  cursor: pointer;
+}
+
 @media (max-width: 767px) {
   .parent {
     display: block;
-    margin-bottom: 100px;
+    margin-bottom: 180px;
   }
   
   .children {
@@ -38,5 +55,9 @@ $content_width_sp: 80%;
       margin: 1rem 1rem 1rem auto;
       justify-content: flex-end;
     }
+  }
+
+  .contents {
+    margin-bottom: 200px;
   }
 }

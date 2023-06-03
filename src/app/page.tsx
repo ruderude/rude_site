@@ -17,21 +17,6 @@ export default function Home() {
   const { comment, contentType, changeContent } = useContents()
   console.log('comment: ', comment)
 
-  const choiceContent = (type: string) => {
-    switch (type) {
-      case CommentType.news:
-        return <News />
-      case CommentType.what:
-        return <What />
-      case CommentType.menu:
-        return <Menu />
-      case CommentType.contact:
-        return <Contact />
-      default:
-        return null
-    }
-  }
-
   const contentArea = useRef<HTMLDivElement>(null)
 
   const scrollContent = () => {
@@ -41,6 +26,21 @@ export default function Home() {
   const clickContent = (type: string) => {
     changeContent(type)
     scrollContent()
+  }
+
+  const choiceContent = (type: string) => {
+    switch (type) {
+      case CommentType.news:
+        return <News />
+      case CommentType.what:
+        return <What clickContent={clickContent} />
+      case CommentType.menu:
+        return <Menu />
+      case CommentType.contact:
+        return <Contact />
+      default:
+        return null
+    }
   }
 
   const scrollTop = () => {

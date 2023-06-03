@@ -15,3 +15,7 @@ export interface ContentProps {
   oddEvenType: boolean
   clickContent: (event: any) => void
 }
+
+export interface WhatProps {
+  clickContent: (name: string) => void
+}

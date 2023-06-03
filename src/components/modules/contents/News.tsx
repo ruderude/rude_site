@@ -24,6 +24,16 @@ export const News = memo(() => {
         </h2>
       </div>
 
+      <div>
+        <p className={styles.text}>
+          カラオケ大会、テキーラ・THE・マウンテン、プログラミング勉強会など、様々なイベントを開催しています。<br />
+          店主のブログやTwitterでもお知らせしていますので、ぜひご覧ください。<br />
+          Twitter：<span className={styles.out_link}><a href="https://twitter.com/rude_rockers" target="_blank" rel="noopener noreferrer">訓志@バーテンエンジニア</a></span><br />
+        </p>
+      </div>
+
+      <br />
+
       <div className={styles.tweet_area}>
         <Tweet id="1653293994179432448?s=46&t=4u19217SUnB1lBYPA_o65A" />
         <Script

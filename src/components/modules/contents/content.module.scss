@@ -1,0 +1,34 @@
+.parent {
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.text {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 1rem;
+}
+
+@media (max-width: 767px) {
+  .parent_left {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .parent_right {
+    display: flex;
+    flex-direction: row-reverse;
+    text-align:right;
+  }
+
+  .image {
+    height: 100%;
+  }
+
+  .text {
+    width: 60%;
+    margin: auto;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+}

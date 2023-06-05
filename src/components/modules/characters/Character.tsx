@@ -76,6 +76,6 @@ export default function Character({ changeContent, comment }: Props) {
           }}
         />
       </div>
-  </div>
+    </div>
   </>)
 }

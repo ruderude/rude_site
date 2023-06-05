@@ -1,0 +1,45 @@
+.main {
+  color: white;
+  text-align: center;
+}
+
+.title_area {
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub_title_area {
+  margin-bottom: 2rem;
+}
+
+.sub_title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.text {
+  text-align: left;
+  max-width: 400px;
+  padding: 1rem 2rem;
+  margin: 0 auto;
+  border: 3px rgb(196, 196, 7) solid;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.out_link {
+  font-weight: bold;
+  color: #ff5188;
+  cursor: pointer;
+}

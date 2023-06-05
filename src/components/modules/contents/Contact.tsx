@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect, memo } from "react"
 import Script from 'next/script';
 import Image from 'next/image'
 import styles from './contact.module.scss'
+import { Map } from '@/components/blocks'
 import { FiMail } from 'react-icons/fi'
 
 // eslint-disable-next-line react/display-name
@@ -32,6 +33,10 @@ export const Contact = memo(() => {
           Twitter：<span className={styles.out_link}><a href="https://twitter.com/rude_rockers" target="_blank" rel="noopener noreferrer">訓志@バーテンエンジニア</a></span><br />
         </p>
       </div>
+
+      <br />
+
+      <Map />
 
       <br />
     </div>

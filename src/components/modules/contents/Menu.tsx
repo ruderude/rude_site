@@ -41,7 +41,7 @@ export const Menu = () => {
 
           ・お通しにスナックなど乾き物がでます。（おかわり可）<br />
           ・基本的にフードメニューはありません。<br />
-          ・食べ物の持ち込み可能です。（持ち込み量無料です）<br /><br />
+          ・食べ物の持ち込み可能です。（持ち込み料無料です）<br /><br />
 
           <span className={styles.menu_title}><MdLiquor />ドリンクメニュー</span><br /><br />
 

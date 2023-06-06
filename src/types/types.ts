@@ -19,3 +19,10 @@ export interface ContentProps {
 export interface WhatProps {
   clickContent: (name: string) => void
 }
+
+export interface FormInputs {
+  to_name: string
+  to_email: string
+  message: string
+  check: string | null
+}

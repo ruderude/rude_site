@@ -9,13 +9,15 @@ import { useContents } from '@/hooks/useContents'
 import { CommentType } from '@/types/types'
 import { contents } from '@/data/contents'
 import { BsFillShiftFill } from 'react-icons/bs'
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
+import { ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css'
 
 const btnImage = '/images/button/rude_logo_icon_white.png'
 
 export default function Home() {
   const { comment, contentType, changeContent } = useContents()
-  console.log('comment: ', comment)
+  console.log('こんなところのぞくんじゃねえよ！')
 
   const contentArea = useRef<HTMLDivElement>(null)
 
@@ -88,6 +90,20 @@ export default function Home() {
 
       <Character changeContent={changeContent} comment={comment} ></Character>
       <br />
+
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+
     </main>
   )
 }

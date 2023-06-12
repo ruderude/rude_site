@@ -35,6 +35,16 @@ export const News = memo(() => {
       <br />
 
       <div className={styles.tweet_area}>
+        <Tweet id="1666338388268711936" />
+        <Script
+          src="https://platform.twitter.com/widgets.js"
+          strategy="lazyOnload"
+        />
+      </div>
+
+      <br />
+
+      <div className={styles.tweet_area}>
         <Tweet id="1653293994179432448?s=46&t=4u19217SUnB1lBYPA_o65A" />
         <Script
           src="https://platform.twitter.com/widgets.js"

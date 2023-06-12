@@ -51,6 +51,8 @@ export const News = memo(() => {
           strategy="lazyOnload"
         />
       </div>
+
+      <br />
     </div>
   </>)
 })

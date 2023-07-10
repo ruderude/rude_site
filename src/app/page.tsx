@@ -54,7 +54,7 @@ export default function Home() {
   }
 
   useEffect(() => {
-    changeContent(CommentType.news)
+    changeContent(CommentType.what)
   }, [])
 
   return (

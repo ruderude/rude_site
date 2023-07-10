@@ -10,6 +10,7 @@ export interface ContentProps {
   content: {
     name: string
     text: string
+    detail: string
     image: string
   }
   oddEvenType: boolean

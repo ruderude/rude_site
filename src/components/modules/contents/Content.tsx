@@ -24,6 +24,8 @@ export const Content = memo(({content, oddEvenType, clickContent}: ContentProps)
       </div>
       <div className={styles.text}>
         {content.text}
+        <br />
+        {content.detail}
       </div>
     </div>
   </>)

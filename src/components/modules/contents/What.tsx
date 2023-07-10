@@ -49,10 +49,10 @@ export const What = ({clickContent}: WhatProps) => {
           また、貸切イベントをやりたい方、一日店長をやりたい方などお気軽にお問い合わせください。（定休日の木曜日・日曜日推奨）→<span className={styles.site_link} onClick={() => clickContent(CommentType.contact)}>お問い合わせ</span>
           <br /><br />
           <span className={styles.shop_title}>カラオケバー・るーど</span><br />
-          営業時間：18:00〜翌2:00<br />
+          営業時間：18:00〜翌2:00くらい<br />
           定休日：木曜日・日曜日<br />
           料金システム：テーブルチャージ1,000円、１時間ごとに1,000円の飲み放題・歌い放題（詳しくはMENUから）<br />
-          住所：〒169-0073 東京都中野区東中野4-1-1 英ビル2F<br />
+          住所：〒164-0003 東京都中野区東中野4丁目1-1 英ビル2階<br />
         </p>
       </div>
 

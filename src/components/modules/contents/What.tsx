@@ -43,6 +43,7 @@ export const What = ({clickContent}: WhatProps) => {
         <p className={styles.text}>
           　東中野にあるカラオケバー・るーどは、小さなカラオケバーです。<br />
           お酒を飲みながら、カラオケを楽しむことができます。<br />
+          <strong>※喫煙可能です。</strong><br />
           お酒は、ビール、ハイボール、ウイスキー、焼酎、日本酒、ワイン、カクテルなどを
           ご用意しております。<br />
           メニューは、テーブルチャージが1,000円、１時間ごとに1,000円の飲み放題・歌い放題のシステムとなっております。詳しくはMENUから→<span className={styles.site_link} onClick={() => clickContent(CommentType.menu)}>MENU</span><br /><br />

@@ -6,6 +6,7 @@ import { CommentType, WhatProps } from '@/types/types'
 import { BiSearchAlt } from 'react-icons/bi'
 import { FiMail } from 'react-icons/fi'
 import { HiOutlineInformationCircle } from 'react-icons/hi'
+import { MdLiquor, MdOutlineLiquor, MdOutlineRestaurantMenu } from 'react-icons/md'
 
 
 export const What = ({clickContent}: WhatProps) => {
@@ -40,12 +41,25 @@ export const What = ({clickContent}: WhatProps) => {
       <br />
 
       <div>
-        <p className={styles.text}>
+        <div className={styles.text}>
           　東中野にあるカラオケバー・るーどは、小さなカラオケバーです。<br />
-          お酒を飲みながら、カラオケを楽しむことができます。<br />
-          <strong>※喫煙可能です。</strong><br />
+          お酒を飲みながら、カラオケを楽しむことができます。<br /><br />
+          <div className={styles.text_title}><MdOutlineRestaurantMenu />システム</div><br />
+          <div className={styles.text_detail}>
+            ※喫煙可能です。
+          </div>
+          <div className={styles.text_price}>
+            テーブルチャージ：<span className={styles.big_text}>1,000円</span> <br />
+            １時間：<span className={styles.big_text}>1,000円</span>
+          </div><br />
+          　入店時に発生するテーブルチャージが<b>1,000円</b>。<br />
+          その後1時間ごとに<b>1,000円</b>が追加されます。<br /><br />
+
+          詳しくはMENUから→<span className={styles.site_link} onClick={() => clickContent(CommentType.menu)}>MENU</span><br /><br />
+
+          例）入店し、1時間以内に退店した場合、2,000円のお会計となります。
           お酒は、ビール、ハイボール、ウイスキー、焼酎、日本酒、ワイン、カクテルなどを
-          ご用意しております。<br />
+          ご用意しております。<br /><br />
           メニューは、テーブルチャージが1,000円、１時間ごとに1,000円の飲み放題・歌い放題のシステムとなっております。詳しくはMENUから→<span className={styles.site_link} onClick={() => clickContent(CommentType.menu)}>MENU</span><br /><br />
           また、貸切イベントをやりたい方、一日店長をやりたい方などお気軽にお問い合わせください。（定休日の木曜日・日曜日推奨）→<span className={styles.site_link} onClick={() => clickContent(CommentType.contact)}>お問い合わせ</span>
           <br /><br />
@@ -54,7 +68,7 @@ export const What = ({clickContent}: WhatProps) => {
           定休日：木曜日・日曜日<br />
           料金システム：テーブルチャージ1,000円、１時間ごとに1,000円の飲み放題・歌い放題（詳しくはMENUから）<br />
           住所：〒164-0003 東京都中野区東中野4丁目1-1 英ビル2階<br />
-        </p>
+        </div>
       </div>
 
       <br />

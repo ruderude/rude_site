@@ -22,7 +22,7 @@
 }
 
 .sub_title {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: bold;
   margin: 0;
   padding: 0;
@@ -36,6 +36,36 @@
   border: 3px rgb(196, 196, 7) solid;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.text_title {
+  color: bisque;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.text_detail {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.text_price {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0 6px;
+  padding: 0;
+}
+
+.big_text {
+  color: rgb(245, 245, 53);
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .shop_title {

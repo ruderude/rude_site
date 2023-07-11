@@ -46,7 +46,7 @@ export const What = ({clickContent}: WhatProps) => {
           お酒を飲みながら、カラオケを楽しむことができます。<br /><br />
           <div className={styles.text_title}><MdOutlineRestaurantMenu />システム</div><br />
           <div className={styles.text_detail}>
-            ※喫煙可能です。
+            ※喫煙可
           </div>
           <div className={styles.text_price}>
             テーブルチャージ：<span className={styles.big_text}>1,000円</span> <br />

@@ -28,8 +28,16 @@ export const Menu = () => {
       <br />
 
       <div>
-        <p className={styles.text}>
+        <div className={styles.text}>
           <span className={styles.menu_title}><MdOutlineRestaurantMenu />システム</span><br /><br />
+          <div className={styles.text_detail}>
+            ※喫煙可
+          </div>
+          <div className={styles.text_price}>
+            テーブルチャージ：<span className={styles.big_text}>1,000円</span> <br />
+            １時間：<span className={styles.big_text}>1,000円</span>
+          </div><br />
+
           　入店時に発生するテーブルチャージが<b>1,000円</b>。<br />
           その後1時間ごとに<b>1,000円</b>が追加されます。<br /><br />
 
@@ -85,7 +93,7 @@ export const Menu = () => {
 
           <span className={styles.menu_title}><AiOutlinePayCircle />支払い</span><br /><br />
           現金払いのほか、カード決済、PayPayでの決済がご利用できます。<br />
-        </p>
+        </div>
       </div>
     </div>
   </>)

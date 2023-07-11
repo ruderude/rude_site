@@ -3,10 +3,24 @@
   cursor: pointer;
 }
 
+.text_area {
+  min-width: 10rem;
+  margin: auto;
+  padding: 1rem;
+}
+
 .text {
   color: rgb(255, 255, 255);
   text-align: center;
-  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.detail {
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 @media (max-width: 767px) {
@@ -26,7 +40,8 @@
   }
 
   .text_area {
-    min-width: 10rem;
+    min-width: 12rem;
+    margin: auto;
   }
 
   .text {

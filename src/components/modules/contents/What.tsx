@@ -57,10 +57,6 @@ export const What = ({clickContent}: WhatProps) => {
 
           詳しくはMENUから→<span className={styles.site_link} onClick={() => clickContent(CommentType.menu)}>MENU</span><br /><br />
 
-          例）入店し、1時間以内に退店した場合、2,000円のお会計となります。
-          お酒は、ビール、ハイボール、ウイスキー、焼酎、日本酒、ワイン、カクテルなどを
-          ご用意しております。<br /><br />
-          メニューは、テーブルチャージが1,000円、１時間ごとに1,000円の飲み放題・歌い放題のシステムとなっております。詳しくはMENUから→<span className={styles.site_link} onClick={() => clickContent(CommentType.menu)}>MENU</span><br /><br />
           また、貸切イベントをやりたい方、一日店長をやりたい方などお気軽にお問い合わせください。（定休日の木曜日・日曜日推奨）→<span className={styles.site_link} onClick={() => clickContent(CommentType.contact)}>お問い合わせ</span>
           <br /><br />
           <span className={styles.shop_title}>カラオケバー・るーど</span><br />

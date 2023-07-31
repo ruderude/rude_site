@@ -50,7 +50,7 @@ export const What = ({clickContent}: WhatProps) => {
           </div>
           <div className={styles.text_price}>
             テーブルチャージ：<span className={styles.big_text}>1,000円</span> <br />
-            １時間：<span className={styles.big_text}>1,000円</span>
+            １時間（飲み歌い放題）：<span className={styles.big_text}>1,000円</span>
           </div><br />
           　入店時に発生するテーブルチャージが<b>1,000円</b>。<br />
           その後1時間ごとに<b>1,000円</b>が追加されます。<br /><br />

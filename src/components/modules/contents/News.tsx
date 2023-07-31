@@ -28,11 +28,12 @@ export const News = memo(() => {
         <p className={styles.text}>
           カラオケ大会、テキーラ・THE・マウンテン、プログラミング勉強会など、様々なイベントを開催しています。<br />
           店主のブログやTwitterでもお知らせしていますので、ぜひご覧ください。<br />
-          Twitter：<span className={styles.out_link}><a href="https://twitter.com/rude_rockers" target="_blank" rel="noopener noreferrer">訓志@バーテンエンジニア</a></span><br />
+          Twitterお店：<span className={styles.out_link}><a href="https://twitter.com/rude_rockers" target="_blank" rel="noopener noreferrer">訓志@バーテンエンジニア</a></span><br />
+          Twitter店主：<span className={styles.out_link}><a href="https://twitter.com/rude_rockers" target="_blank" rel="noopener noreferrer">訓志@バーテンエンジニア</a></span><br />
         </p>
       </div>
 
-      <br />
+      {/* <br />
 
       <div className={styles.tweet_area}>
         <Tweet id="1675098780289622016" />
@@ -60,7 +61,7 @@ export const News = memo(() => {
           src="https://platform.twitter.com/widgets.js"
           strategy="lazyOnload"
         />
-      </div>
+      </div> */}
 
       <br />
     </div>

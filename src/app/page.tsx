@@ -88,8 +88,8 @@ export default function Home() {
         superIn && <FadeToBlack num={num} setSuperIn={setSuperIn} />
       }
 
-      <div className={styles.mb_3}>
-        <div className={`${styles.parent} ${styles.mb_2}`}>
+      <div className={styles.all_contents_area}>
+        <div className={`${styles.parent} ${styles.contents_area}`}>
           {
             contents.map((content, index) => {
               // indexが偶数か奇数か(CSSのため)

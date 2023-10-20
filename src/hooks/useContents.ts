@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useCallback } from "react"
-import { characterComments, whatComments, menuComments, newsComments, contactComments } from "@/data/character"
+import { characterComments, whatComments, menuComments, newsComments, contactComments, super_1_Comments, super_2_Comments, super_3_Comments } from "@/data/character"
 import { CommentType } from '@/types/types'
 
 export const useContents = () => {
@@ -34,6 +34,18 @@ export const useContents = () => {
         setContentType(() => CommentType.contact)
         comments = contactComments
         break;
+      case CommentType.super_1:
+          setContentType(() => CommentType.super_1)
+          comments = super_1_Comments
+        break;
+      case CommentType.super_2:
+          setContentType(() => CommentType.super_2)
+          comments = super_2_Comments
+        break;
+      case CommentType.super_3:
+          setContentType(() => CommentType.super_2)
+          comments = super_3_Comments
+          break;
       default:
         setContentType(() => CommentType.character)
         comments = characterComments

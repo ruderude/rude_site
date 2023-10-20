@@ -1,5 +1,6 @@
 "use client"
 
+import type { Metadata } from 'next'
 import { useEffect, useState, useRef } from "react"
 import Image from 'next/image'
 import styles from './page.module.scss'
@@ -13,9 +14,45 @@ import { motion } from 'framer-motion'
 import { ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css'
 
-// const btnImage = '/images/button/rude_logo_icon_white.png'
+const siteTitle= '【カラオケバー・ルード】東中野';
+const description = `東中野にあるカラオケバー・るーどは、小さなカラオケバーです。
+お酒を飲みながら、カラオケを楽しむことができます。
+お酒は、ビール、ハイボール、ウイスキー、焼酎、日本酒、ワイン、カクテルなどを ご用意しております。
+メニューは、テーブルチャージが1,000円、１時間ごとに1,000円の飲み放題・歌い放題のシステムとなっております。
+また、貸切イベントをやりたい方、一日店長をやりたい方などお気軽にお問い合わせください。（定休日の木曜日・日曜日推奨
+カラオケバー・るーど
+営業時間：18:00〜翌2:00くらい
+定休日：木曜日・日曜日
+料金システム：テーブルチャージ1,000円、１時間ごとに1,000円の飲み放題・歌い放題（詳しくはMENUから）
+住所：〒164-0003 東京都中野区東中野4丁目1-1 英ビル2階`;
+const url = 'https://rude-site.vercel.app';
 
 export default function Home() {
+  const metadata: Metadata = {
+    title: siteTitle,
+    description: description,
+    openGraph: {
+      title: siteTitle,
+      description: description,
+      url: url,
+      siteName: siteTitle,
+      locale: 'ja_JP',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: siteTitle,
+      description: description,
+      site: '@rude_rockers',
+      creator: '@rude_rockers',
+    },
+    verification: {
+      google: 'E0WjjvGn8lXWZM6LFDUjpoNnNkqUE5bQCSbmX1mzq_A',
+    },
+    alternates: {
+      canonical: url,
+    },
+  }
   const { comment, contentType, changeContent } = useContents()
   const [superIn, setSuperIn] = useState<boolean>(false);
   const [num, setNum] = useState<number>(1);

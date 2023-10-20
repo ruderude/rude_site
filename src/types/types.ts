@@ -4,6 +4,9 @@ export const CommentType = {
   what: "what",
   menu: "menu",
   contact: "contact",
+  super_1: "super_1",
+  super_2: "super_2",
+  super_3: "super_3",
 } as const;
 
 export interface ContentProps {

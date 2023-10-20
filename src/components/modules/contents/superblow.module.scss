@@ -1,0 +1,24 @@
+.flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  background-color: #ff5188;
+  border-radius: 10px;
+  border: 3px #fff solid;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+

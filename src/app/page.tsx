@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react"
 import Image from 'next/image'
 import styles from './page.module.scss'
 import Character from '@/components/modules/characters/Character'
-import { Content, What, Menu, News, Contact } from '@/components/modules/contents'
+import { Content, What, Menu, News, Contact, SuperBlow, FadeToBlack } from '@/components/modules/contents'
 import { useContents } from '@/hooks/useContents'
 import { CommentType } from '@/types/types'
 import { contents } from '@/data/contents'
@@ -13,12 +13,12 @@ import { motion } from 'framer-motion'
 import { ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css'
 
-const btnImage = '/images/button/rude_logo_icon_white.png'
+// const btnImage = '/images/button/rude_logo_icon_white.png'
 
 export default function Home() {
   const { comment, contentType, changeContent } = useContents()
-  console.log('こんなところのぞくんじゃねえよ！')
-
+  const [superIn, setSuperIn] = useState<boolean>(false);
+  const [num, setNum] = useState<number>(1);
   const contentArea = useRef<HTMLDivElement>(null)
 
   const scrollContent = () => {
@@ -28,6 +28,30 @@ export default function Home() {
   const clickContent = (type: string) => {
     changeContent(type)
     scrollContent()
+  }
+
+  // 必殺技ボタン
+  const clickSuper = (number: any) => {
+    setNum(number)
+    setSuperIn(true)
+    let comment = ''
+    switch (number) {
+      case 1:
+        comment = CommentType.super_1
+        break;
+      case 2:
+        comment = CommentType.super_2
+        break;
+      case 3:
+        comment = CommentType.super_3
+        break;
+      default:
+        comment = '必殺技です。'
+        break;
+    }
+    setTimeout(() => {
+      changeContent(comment)
+    }, 4000)
   }
 
   const choiceContent = (type: string) => {
@@ -54,11 +78,15 @@ export default function Home() {
   }
 
   useEffect(() => {
+    console.log('こんなところのぞくんじゃねえよ！')
     changeContent(CommentType.what)
   }, [])
 
   return (
     <main>
+      {
+        superIn && <FadeToBlack num={num} setSuperIn={setSuperIn} />
+      }
 
       <div className={styles.parent}>
         {
@@ -72,6 +100,7 @@ export default function Home() {
             )
           })
         }
+        <SuperBlow clickSuper={clickSuper} />
       </div>
 
       <div className={styles.contents} ref={contentArea}>

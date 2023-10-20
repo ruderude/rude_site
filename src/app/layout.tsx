@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState, useRef } from "react"
-import { RecoilRoot } from "recoil";
 import './globals.scss'
 import './destyle.css'
 import { Inter } from 'next/font/google'

@@ -88,18 +88,20 @@ export default function Home() {
         superIn && <FadeToBlack num={num} setSuperIn={setSuperIn} />
       }
 
-      <div className={styles.parent}>
-        {
-          contents.map((content, index) => {
-            // indexが偶数か奇数か(CSSのため)
-            const oddEven = index % 2 === 0
-            return (
-              <div className={styles.children} key={index}>
-                <Content content={content} oddEvenType={oddEven} clickContent={clickContent} />
-              </div>
-            )
-          })
-        }
+      <div className={styles.mb_3}>
+        <div className={`${styles.parent} ${styles.mb_2}`}>
+          {
+            contents.map((content, index) => {
+              // indexが偶数か奇数か(CSSのため)
+              const oddEven = index % 2 === 0
+              return (
+                <div className={styles.children} key={index}>
+                  <Content content={content} oddEvenType={oddEven} clickContent={clickContent} />
+                </div>
+              )
+            })
+          }
+        </div>
         <SuperBlow clickSuper={clickSuper} />
       </div>
 

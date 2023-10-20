@@ -54,6 +54,7 @@ export default function Home() {
     },
   }
   const { comment, contentType, changeContent } = useContents()
+  const [content, setContent] = useState<string>(CommentType.what);
   const [superIn, setSuperIn] = useState<boolean>(false);
   const [num, setNum] = useState<number>(1);
   const contentArea = useRef<HTMLDivElement>(null)
@@ -63,6 +64,7 @@ export default function Home() {
   }
 
   const clickContent = (type: string) => {
+    setContent(type)
     changeContent(type)
     scrollContent()
   }
@@ -101,9 +103,19 @@ export default function Home() {
         return <Menu />
       case CommentType.contact:
         return <Contact />
-      default:
-        return null
     }
+
+    switch (content) {
+      case CommentType.news:
+        return <News />
+      case CommentType.what:
+        return <What clickContent={clickContent} />
+      case CommentType.menu:
+        return <Menu />
+      case CommentType.contact:
+        return <Contact />
+    }
+
   }
 
   const scrollTop = () => {
@@ -116,7 +128,7 @@ export default function Home() {
 
   useEffect(() => {
     console.log('こんなところのぞくんじゃねえよ！')
-    changeContent(CommentType.what)
+    changeContent(content)
   }, [])
 
   return (

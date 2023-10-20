@@ -15,7 +15,7 @@ $content_width_sp: 80%;
   width: 100%;
 }
 
-.mb_3 {
+.all_contents_area {
   margin-bottom: 100px;
 }
 
@@ -45,12 +45,12 @@ $content_width_sp: 80%;
     display: block;
   }
 
-  .mb_2 {
+  .all_contents_area {
     margin-bottom: 200px;
   }
 
-  .mb_3 {
-    margin-bottom: 300px;
+  .contents_area {
+    margin-bottom: 250px;
   }
   
   .children {

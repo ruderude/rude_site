@@ -12,14 +12,14 @@ import { contents } from '@/data/contents'
 import { BsFillShiftFill } from 'react-icons/bs'
 import { motion } from 'framer-motion'
 import { ToastContainer } from "react-toastify"
+import { NextSeo } from "next-seo";
 import 'react-toastify/dist/ReactToastify.css'
 
-const siteTitle= '【カラオケバー・ルード】東中野';
+const siteTitle= '【カラオケバー・ルード】東中野'
 const description = `東中野にあるカラオケバー・ルードは、小さなカラオケバーです。
 お酒を飲みながら、カラオケを楽しむことができます。
-お酒は、ビール、ハイボール、ウイスキー、焼酎、日本酒、ワイン、カクテルなどを ご用意しております。
+お酒は、ビール、ハイボール、焼酎、ワイン、カクテルなどを ご用意しております。
 メニューは、テーブルチャージが1,000円、1時間ごとに1,500円の飲み放題・歌い放題のシステムとなっております。
-また、貸切イベントをやりたい方、一日店長をやりたい方などお気軽にお問い合わせください。（定休日の木曜日・日曜日推奨
 カラオケバー・ルード
 営業時間：18:00〜翌2:00くらい
 定休日：木曜日・日曜日
@@ -70,28 +70,28 @@ export default function Home() {
   }
 
   // 必殺技ボタン
-  const clickSuper = (number: any) => {
-    setNum(number)
-    setSuperIn(true)
-    let comment = ''
-    switch (number) {
-      case 1:
-        comment = CommentType.super_1
-        break;
-      case 2:
-        comment = CommentType.super_2
-        break;
-      case 3:
-        comment = CommentType.super_3
-        break;
-      default:
-        comment = '必殺技です。'
-        break;
-    }
-    setTimeout(() => {
-      changeContent(comment)
-    }, 4000)
-  }
+  // const clickSuper = (number: any) => {
+  //   setNum(number)
+  //   setSuperIn(true)
+  //   let comment = ''
+  //   switch (number) {
+  //     case 1:
+  //       comment = CommentType.super_1
+  //       break;
+  //     case 2:
+  //       comment = CommentType.super_2
+  //       break;
+  //     case 3:
+  //       comment = CommentType.super_3
+  //       break;
+  //     default:
+  //       comment = '必殺技です。'
+  //       break;
+  //   }
+  //   setTimeout(() => {
+  //     changeContent(comment)
+  //   }, 4000)
+  // }
 
   const choiceContent = (type: string) => {
     switch (type) {
@@ -131,7 +131,19 @@ export default function Home() {
     changeContent(content)
   }, [])
 
-  return (
+  return (<>
+    <NextSeo
+      title={siteTitle}
+      description={description}
+      openGraph={{
+        title: siteTitle,
+        description: description,
+        url: url,
+        type: 'website',
+        site_name: siteTitle,
+      }}
+    />
+    
     <main>
       {
         superIn && <FadeToBlack num={num} setSuperIn={setSuperIn} />
@@ -185,5 +197,5 @@ export default function Home() {
       />
 
     </main>
-  )
+  </>)
 }

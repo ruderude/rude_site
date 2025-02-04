@@ -80,7 +80,7 @@ export const Contact = memo(() => {
 
       <div className={styles.sub_title_area}>
         <h2 className={styles.sub_title}>
-        東中野にあるカラオケバー・るーど：お問い合わせ
+        東中野にあるカラオケバー・ルード：お問い合わせ
         </h2>
       </div>
 

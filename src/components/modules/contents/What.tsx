@@ -69,7 +69,7 @@ export const What = ({clickContent}: WhatProps) => {
 
       <br />
 
-      <div className={styles.image}>
+      <div>
         <Image
           src={image_gaikan_1}
           alt="RUDE外観"
@@ -80,6 +80,8 @@ export const What = ({clickContent}: WhatProps) => {
             width: '100%',
             maxWidth: '400px',
             height: 'auto',
+            objectFit: 'cover',
+            borderRadius: '8px',
           }}
         />
       </div>
@@ -93,7 +95,7 @@ export const What = ({clickContent}: WhatProps) => {
       <div>
         <br />
 
-        <div className={styles.image}>
+        <div>
           <Image
             src={image_naikan_1}
             alt="RUDE内観"
@@ -104,10 +106,13 @@ export const What = ({clickContent}: WhatProps) => {
               width: '100%',
               maxWidth: '400px',
               height: 'auto',
+              objectFit: 'cover',
+              borderRadius: '8px',
+              marginBottom: '8px',
             }}
           />
         </div>
-        <div className={styles.image}>
+        <div>
           <Image
             src={image_naikan_2}
             alt="RUDE内観"
@@ -118,10 +123,13 @@ export const What = ({clickContent}: WhatProps) => {
               width: '100%',
               maxWidth: '400px',
               height: 'auto',
+              objectFit: 'cover',
+              borderRadius: '8px',
+              marginBottom: '8px',
             }}
           />
         </div>
-        <div className={styles.image}>
+        <div>
           <Image
             src={image_naikan_4}
             alt="RUDE内観"
@@ -132,10 +140,13 @@ export const What = ({clickContent}: WhatProps) => {
               width: '100%',
               maxWidth: '400px',
               height: 'auto',
+              objectFit: 'cover',
+              borderRadius: '8px',
+              marginBottom: '8px',
             }}
           />
         </div>
-        <div className={styles.image}>
+        <div>
           <Image
             src={image_naikan_5}
             alt="RUDE内観"
@@ -146,10 +157,13 @@ export const What = ({clickContent}: WhatProps) => {
               width: '100%',
               maxWidth: '400px',
               height: 'auto',
+              objectFit: 'cover',
+              borderRadius: '8px',
+              marginBottom: '8px',
             }}
           />
         </div>
-        <div className={styles.image}>
+        <div>
           <Image
             src={image_naikan_6}
             alt="RUDE内観"
@@ -160,10 +174,13 @@ export const What = ({clickContent}: WhatProps) => {
               width: '100%',
               maxWidth: '400px',
               height: 'auto',
+              objectFit: 'cover',
+              borderRadius: '8px',
+              marginBottom: '8px',
             }}
           />
         </div>
-        <div className={styles.image}>
+        <div>
           <Image
             src={image_naikan_7}
             alt="RUDE内観"
@@ -174,10 +191,13 @@ export const What = ({clickContent}: WhatProps) => {
               width: '100%',
               maxWidth: '400px',
               height: 'auto',
+              objectFit: 'cover',
+              borderRadius: '8px',
+              marginBottom: '8px',
             }}
           />
         </div>
-        <div className={styles.image}>
+        <div>
           <Image
             src={image_naikan_8}
             alt="RUDE内観"
@@ -188,6 +208,9 @@ export const What = ({clickContent}: WhatProps) => {
               width: '100%',
               maxWidth: '400px',
               height: 'auto',
+              objectFit: 'cover',
+              borderRadius: '8px',
+              marginBottom: '8px',
             }}
           />
         </div>

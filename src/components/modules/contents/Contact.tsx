@@ -59,7 +59,7 @@ export const Contact = memo(() => {
           toast('お問い合わせメールを送信しました！')
           clearForm()
         }, (error) => {
-          console.log(error.text)
+          // console.log(error.text)
           toast.error('メール送信に失敗しました！')
         })
     } else {

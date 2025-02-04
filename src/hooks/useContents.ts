@@ -10,7 +10,7 @@ export const useContents = () => {
 
   // コンテンツがクリックされたら、コンテンツの表示を切り替え、コメントを返す関数
   const changeContent = useCallback(async (type: string) => {
-    console.log("type", type)
+    // console.log("type", type)
     // キャラがクリックされたら、キャラのコメントを返す、それ以外はコンテンツの表示切替
     let comments: string[] = [];
     switch (type) {

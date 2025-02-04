@@ -21,7 +21,7 @@ export const Menu = () => {
 
       <div className={styles.sub_title_area}>
         <h2 className={styles.sub_title}>
-          東中野にあるカラオケバー・るーど：メニュー
+          東中野にあるカラオケバー・ルード：メニュー
         </h2>
       </div>
 
@@ -35,13 +35,14 @@ export const Menu = () => {
           </div>
           <div className={styles.text_price}>
             テーブルチャージ：<span className={styles.big_text}>1,000円</span> <br />
-            １時間：<span className={styles.big_text}>1,000円</span>
+            １時間：<span className={styles.big_text}>1,500円</span>
           </div><br />
 
           　入店時に発生するテーブルチャージが<b>1,000円</b>。<br />
-          その後1時間ごとに<b>1,000円</b>が追加されます。<br /><br />
+          その後1時間ごとに<b>1,500円</b>が追加されます。<br /><br />
 
-          例）入店し、1時間以内に退店した場合、2,000円のお会計となります。<br /><br />
+          例）入店し、1時間以内に退店した場合、2,500円のお会計となります。<br />
+          例）2時間滞在した場合、4,000円のお会計となります。<br /><br />
 
           飲み物は、飲み放題（一部追い金アリ）<br /><br />
 
@@ -56,20 +57,16 @@ export const Menu = () => {
           ※割もの代・ソフトドリンクは飲み放題に入っています。<br /><br />
 
           <span className={styles.drink_title}>▼焼酎</span><br />
-          鏡月、黒霧島、などが飲み放題です。<br />
-          吉四六など一部のものに関しては1杯あたり500円の追金となります。<br />
-          日本酒は取り扱っていません。<br /><br />
+          鏡月、黒霧島、などが飲み放題です。<br /><br />
 
           <span className={styles.drink_title}>▼ビール</span><br />
           瓶ビールが飲み放題となっております。<br /><br />
 
           <span className={styles.drink_title}>▼ウイスキー・バーボン・スコッチ</span><br />
-          角、ジャックダニエルが飲み放題になります。<br />
-          その他、グレンフィディック、I.W.ハーパー、メイカーズマーク、アードベック、ラフロイグなど一部のものに関しては1杯あたり500円の追金となります。<br /><br />
+          角、ジャックダニエルが飲み放題になります。<br /><br />
 
           <span className={styles.drink_title}>▼テキーラ</span><br />
-          クエルボのシルバー・ゴールドが飲み放題に入ります。<br />
-          その他、アネホ1800など一部のものに関しては1杯あたり500円の追金となります。<br /><br />
+          1杯あたり1000円となります。（クエルボ・1800など）<br /><br />
 
           <span className={styles.drink_title}>▼その他カクテル</span><br />
           店内にあるリキュールからお好みのカクテルを注文できます。<br />
@@ -82,13 +79,13 @@ export const Menu = () => {
           <span className={styles.menu_title}><MdOutlineLiquor />ボトルメニュー</span><br /><br />
           ・ボトルワイン（赤・白）：5,000円<br />
           ・スパークリングワイン：6,000円<br />
-          ・モエ・シャンドン・白：12,000円<br />
-          ・ヴーヴ・クリコ・イエロー：14,000円<br />
-          ・モエ・シャンドン・ロゼ：16,000円<br /><br />
+          ・モエ・シャンドン・白：16,000円<br />
+          ・ヴーヴ・クリコ・イエロー：18,000円<br />
+          ・モエ・シャンドン・ロゼ：18,000円<br /><br />
 
           <span className={styles.drink_title}>▼スタッフへのドリンク</span><br />
           ありがたく頂戴します。<br />
-          １杯あたり1,000円いただきます。<br /><br />
+          １杯あたり1,000円になります。<br /><br />
 
 
           <span className={styles.menu_title}><AiOutlinePayCircle />支払い</span><br /><br />

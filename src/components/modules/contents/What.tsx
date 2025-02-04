@@ -34,7 +34,7 @@ export const What = ({clickContent}: WhatProps) => {
 
       <div className={styles.sub_title_area}>
         <h2 className={styles.sub_title}>
-          東中野にあるカラオケバー・るーどってどんなお店？
+          東中野にあるカラオケバー・ルードってどんなお店？
         </h2>
       </div>
 
@@ -42,7 +42,7 @@ export const What = ({clickContent}: WhatProps) => {
 
       <div>
         <div className={styles.text}>
-          　東中野にあるカラオケバー・るーどは、小さなカラオケバーです。<br />
+          　東中野にあるカラオケバー・ルードは、小さなカラオケバーです。<br />
           お酒を飲みながら、カラオケを楽しむことができます。<br /><br />
           <div className={styles.text_title}><MdOutlineRestaurantMenu />システム</div><br />
           <div className={styles.text_detail}>
@@ -50,19 +50,19 @@ export const What = ({clickContent}: WhatProps) => {
           </div>
           <div className={styles.text_price}>
             テーブルチャージ：<span className={styles.big_text}>1,000円</span> <br />
-            １時間（飲み歌い放題）：<span className={styles.big_text}>1,000円</span>
+            １時間（飲み歌い放題）：<span className={styles.big_text}>1,500円</span>
           </div><br />
           　入店時に発生するテーブルチャージが<b>1,000円</b>。<br />
-          その後1時間ごとに<b>1,000円</b>が追加されます。<br /><br />
+          その後1時間ごとに<b>1,500円</b>が追加されます。<br /><br />
 
           詳しくはMENUから→<span className={styles.site_link} onClick={() => clickContent(CommentType.menu)}>MENU</span><br /><br />
 
           また、貸切イベントをやりたい方、一日店長をやりたい方などお気軽にお問い合わせください。（定休日の木曜日・日曜日推奨）→<span className={styles.site_link} onClick={() => clickContent(CommentType.contact)}>お問い合わせ</span>
           <br /><br />
-          <span className={styles.shop_title}>カラオケバー・るーど</span><br />
+          <span className={styles.shop_title}>カラオケバー・ルード</span><br />
           営業時間：18:00〜翌2:00くらい<br />
           定休日：木曜日・日曜日<br />
-          料金システム：テーブルチャージ1,000円、１時間ごとに1,000円の飲み放題・歌い放題（詳しくはMENUから）<br />
+          料金システム：テーブルチャージ1,000円、1時間ごとに1,500円の飲み放題・歌い放題（詳しくはMENUから）<br />
           住所：〒164-0003 東京都中野区東中野4丁目1-1 英ビル2階<br />
         </div>
       </div>

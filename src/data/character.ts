@@ -682,7 +682,7 @@ export const characterComments = [
 ];
 
 export const whatComments = [
-  `「カラオケバー・るーど」は東中野にあるカラオケバーです。
+  `「カラオケバー・ルード」は東中野にあるカラオケバーです。
   ぜひ皆さん遊びに来てくださいね！！`,
 ];
 
@@ -693,7 +693,7 @@ export const menuComments = [
 
 export const newsComments = [
   `ニュースです。
-  カラオケバー・るーどの最新情報をお届けします。
+  カラオケバー・ルードの最新情報をお届けします。
   店主のTwitterもフォローしてね。`,
 ];
 

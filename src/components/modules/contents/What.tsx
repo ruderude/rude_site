@@ -49,10 +49,10 @@ export const What = ({clickContent}: WhatProps) => {
             ※喫煙可
           </div>
           <div className={styles.text_price}>
-            テーブルチャージ：<span className={styles.big_text}>1,000円</span> <br />
+            テーブルチャージ：<span className={styles.big_text}>500円</span> <br />
             １時間（飲み歌い放題）：<span className={styles.big_text}>1,500円</span>
           </div><br />
-          　入店時に発生するテーブルチャージが<b>1,000円</b>。<br />
+          　入店時に発生するテーブルチャージが<b>500円</b>。<br />
           その後1時間ごとに<b>1,500円</b>が追加されます。<br /><br />
 
           詳しくはMENUから→<span className={styles.site_link} onClick={() => clickContent(CommentType.menu)}>MENU</span><br /><br />
@@ -62,7 +62,7 @@ export const What = ({clickContent}: WhatProps) => {
           <span className={styles.shop_title}>カラオケバー・ルード</span><br />
           営業時間：18:00〜翌2:00くらい<br />
           定休日：木曜日・日曜日<br />
-          料金システム：テーブルチャージ1,000円、1時間ごとに1,500円の飲み放題・歌い放題（詳しくはMENUから）<br />
+          料金システム：テーブルチャージ500円、1時間ごとに1,500円の飲み放題・歌い放題（詳しくはMENUから）<br />
           住所：〒164-0003 東京都中野区東中野4丁目1-1 英ビル2階<br />
         </div>
       </div>

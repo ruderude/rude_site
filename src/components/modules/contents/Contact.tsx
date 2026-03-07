@@ -1,7 +1,7 @@
 import React, { memo } from "react"
 import styles from './contact.module.scss'
 import { useForm, SubmitHandler } from "react-hook-form"
-import emailjs from 'emailjs-com'
+import emailjs from '@emailjs/browser'
 import { Map } from '@/components/blocks'
 import { FiMail } from 'react-icons/fi'
 import { FormInputs } from '@/types/types'
@@ -41,10 +41,11 @@ export const Contact = memo(function Contact() {
         params,
         publicKey
       )
-        .then((result) => {
+        .then(() => {
           toast('お問い合わせメールを送信しました！')
           reset()
         }, (error) => {
+          console.error('EmailJS Error:', error)
           toast.error('メール送信に失敗しました！')
         })
     } else {

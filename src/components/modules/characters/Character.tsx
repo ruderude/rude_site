@@ -17,7 +17,7 @@ interface Props {
 
 // キャラクターの名前をクラス名にしても良い
 export default function Character({ changeContent, comment }: Props) {
-  const characterImg = '/images/character/kunshi_1_l-min.png'
+  const characterImg = '/images/staff/kunshi-removebg-preview.png'
   const commentArea = useRef<HTMLDivElement>(null!)
   const [can, setCan] = useState<boolean>(true)
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -60,7 +60,7 @@ export default function Character({ changeContent, comment }: Props) {
 
   return (<>
     <div className={`${styles.parent}`}>
-      <div className={`${styles.comment} word_turn`}>
+      <div className={`${styles.comment} word_turn`} onClick={() => changeContent(CommentType.character)}>
         <div className={`${styles.commentArea}`} ref={commentArea}></div>
       </div>
       <div className={`${styles.character}`} onClick={() => changeContent(CommentType.character)} >

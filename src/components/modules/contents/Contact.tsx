@@ -71,7 +71,7 @@ export const Contact = memo(() => {
     <div className={styles.main}>
       <div className={styles.title_area}>
         <h1 className={styles.title}>
-          <FiMail color={'white'} />
+          <FiMail color={'#e94560'} />
           Contact
         </h1>
       </div>

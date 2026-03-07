@@ -18,6 +18,7 @@ export interface ContentProps {
   }
   oddEvenType: boolean
   clickContent: (event: any) => void
+  isActive?: boolean
 }
 
 export interface WhatProps {

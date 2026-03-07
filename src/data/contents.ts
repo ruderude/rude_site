@@ -3,8 +3,8 @@ import { CommentType } from '@/types/types'
 export const contents = [
   {
     name: CommentType.news,
-    text: "News",
-    detail: "（お知らせ）",
+    text: "News & Staff",
+    detail: "（お知らせとスタッフ紹介）",
     image: '/images/contents/rude_logo_icon_white.png'
   },
   {

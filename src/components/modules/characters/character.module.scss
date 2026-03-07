@@ -1,83 +1,100 @@
-// 会話風の吹き出し
+$accent: #e94560;
+$gold: #c9a84c;
+
 .parent {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  margin: 0 2rem 1rem 1rem;
+  padding: 0 2rem 1.5rem;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
+  z-index: 50;
 }
 
 .character {
-  width: 200px;
-  height: 200px;
-  max-width: 200px;
-  max-height: 200px;
-  margin-right: 2rem;
+  width: 160px;
+  height: 160px;
+  max-width: 160px;
+  max-height: 160px;
+  margin-left: 1rem;
   cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.25s;
+
+  &:hover {
+    transform: scale(1.06);
+  }
 }
 
 .comment {
   position: relative;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.5);
-  border: 2px solid #fff;
-  border-radius: 10px;
-  padding: 1rem 2rem;
-  margin: 0 2rem;
-  flex-basis: 80%;
-  min-height: 200px;
+  color: #333;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  flex-basis: 60%;
+  max-width: 580px;
+  min-height: 110px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  font-size: 1rem;
+  line-height: 1.8;
+  cursor: pointer;
 }
 
-/*しっぽ共通*/
 .comment::after {
   border: solid transparent;
-    content:'';
-    height:0;
-    width:0;
-    pointer-events:none;
-    position:absolute;
-    border-color: rgba(0, 0, 0, 0);
-    border-top-width:15px;
-    border-bottom-width:15px;
-    border-left-width:15px;
-    border-right-width:15px;
-    margin-top: -10px;
-    border-left-color:#fff;
-    left:100%;
-    top:70%;
+  content: '';
+  height: 0;
+  width: 0;
+  pointer-events: none;
+  position: absolute;
+  border-color: rgba(0, 0, 0, 0);
+  border-top-width: 12px;
+  border-bottom-width: 12px;
+  border-left-width: 12px;
+  border-right-width: 12px;
+  margin-top: -8px;
+  border-left-color: rgba(255, 255, 255, 0.95);
+  left: 100%;
+  top: 70%;
 }
 
 .commentArea::after {
   content: "|";
+  color: $gold;
   animation-name: blink;
   animation-duration: 1s;
   animation-iteration-count: infinite;
 }
 
 @keyframes blink {
-  from {
-      opacity: 0;
-  }
-  to {
-      opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @media (max-width: 767px) {
+  .parent {
+    padding: 0 0.4rem 0.5rem;
+  }
+
   .character {
-    width: 70px;
-    height: 70px;
-    max-width: 70px;
-    max-height: 70px;
-    margin: 0 1rem 0 0.5rem;
+    width: 80px;
+    height: 80px;
+    max-width: 80px;
+    max-height: 80px;
+    margin-left: 0.4rem;
   }
 
   .comment {
-    font-size: 0.8rem;
-    margin: 0 0.5rem;
-    padding: 0.5rem 1rem;
+    flex-basis: 75%;
+    font-size: 0.85rem;
+    padding: 0.7rem 0.9rem;
     min-height: 70px;
+    border-radius: 10px;
+    line-height: 1.7;
   }
 }

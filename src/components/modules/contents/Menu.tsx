@@ -12,7 +12,7 @@ export const Menu = () => {
     <div className={styles.main}>
       <div className={styles.title_area}>
         <h1 className={styles.title}>
-          <HiOutlineInformationCircle color={'white'} />
+          <HiOutlineInformationCircle color={'#e94560'} />
           Menu
         </h1>
       </div>
@@ -44,11 +44,11 @@ export const Menu = () => {
           例）入店し、1時間以内に退店した場合、2,000円のお会計となります。<br />
           例）2時間滞在した場合、3,500円のお会計となります。<br /><br />
 
-          飲み物は、飲み放題（一部追い金アリ）<br /><br />
+          飲み物は、飲み放題（テキーラなど一部追い金アリ）<br /><br />
 
           カラオケは歌い放題となります。<br /><br />
 
-          ・店舗のLINE公式を追加いただく事でお通しにスナックなど乾き物がでます（おかわり自由）<br />
+          ・お通しにスナックなど乾き物がでます（おかわり自由）<br />
           ・基本的にフードメニューはありません。<br />
           ・食べ物の持ち込み可能です。（持ち込み料無料です）<br /><br />
 
@@ -69,7 +69,7 @@ export const Menu = () => {
           イエガー・マイスター　500円<br />
           クエルボ・シルバー　500円<br />
           クエルボ・ゴールド　500円<br />
-          クエルボ1800　1,000円br<br /><br />
+          クエルボ1800　1,000円<br /><br />
 
           <span className={styles.drink_title}>▼その他カクテル</span><br />
           店内にあるリキュールからお好みのカクテルを注文できます。<br />

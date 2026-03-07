@@ -1,3 +1,6 @@
+$accent: #e94560;
+$gold: #c9a84c;
+
 .flex {
   display: flex;
   justify-content: space-around;
@@ -5,20 +8,22 @@
 }
 
 .btn {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: none;
-  color: white;
-  background-color: #ff5188;
+  color: #343440;
+  background: $gold;
   border-radius: 10px;
-  border: 3px #fff solid;
-  padding: 0.5rem 1rem;
+  border: none;
+  padding: 0.6rem 1.5rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-}
+  transition: all 0.3s;
+  letter-spacing: 0.05em;
 
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(201, 168, 76, 0.3);
+  }
+}

@@ -25,7 +25,7 @@ export const What = ({clickContent}: WhatProps) => {
     <div className={styles.main}>
       <div className={styles.title_area}>
         <h1 className={styles.title}>
-          <BiSearchAlt color={'white'} />
+          <BiSearchAlt color={'#e94560'} />
           What
         </h1>
       </div>
@@ -43,7 +43,10 @@ export const What = ({clickContent}: WhatProps) => {
       <div>
         <div className={styles.text}>
           　東中野にあるカラオケバー・ルードは、小さなカラオケバーです。<br />
-          お酒を飲みながら、カラオケを楽しむことができます。<br /><br />
+          お酒を飲みながら、カラオケを楽しむことができます。<br />
+          お酒は、ビール、ハイボール、焼酎、ワイン、カクテルなどを ご用意しております。<br />
+          メニューは、テーブルチャージが500円、1時間ごとに1,500円の飲み放題・歌い放題のシステムとなっております。<br />
+          お一人さまでも気軽に楽しめる店です。<br /><br />
           <div className={styles.text_title}><MdOutlineRestaurantMenu />システム</div><br />
           <div className={styles.text_detail}>
             ※喫煙可

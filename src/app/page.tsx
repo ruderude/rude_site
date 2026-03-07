@@ -19,7 +19,12 @@ export default function Home() {
   const contentArea = useRef<HTMLDivElement>(null)
 
   const scrollContent = () => {
-    contentArea?.current?.scrollIntoView({behavior: "smooth"});
+    if (contentArea.current) {
+      const header = document.querySelector('header');
+      const headerHeight = header ? header.offsetHeight : 0;
+      const top = contentArea.current.getBoundingClientRect().top + window.scrollY - headerHeight;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
   }
 
   const clickContent = useCallback((type: string) => {

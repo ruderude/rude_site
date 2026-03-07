@@ -8,11 +8,11 @@ const notoSansJP = Noto_Sans_JP({ subsets: ['latin'], weight: ['400', '500', '70
 
 export const metadata: Metadata = {
   title: '【カラオケバー・ルード】東中野',
-  description: '東中野駅前のカラオケバー・ルード。テーブルチャージ500円＋1時間1,500円で飲み放題・歌い放題。お一人さまも大歓迎。営業時間18:00〜翌2:00頃、定休日：木曜・日曜。',
+  description: '東中野駅前のカラオケバー・ルード。テーブルチャージ500円＋1時間1,500円で飲み放題・歌い放題。お一人さまも大歓迎。営業時間19:00〜翌2:00頃、定休日：木曜・日曜。',
   metadataBase: new URL('https://rude-site.vercel.app'),
   openGraph: {
     title: '【カラオケバー・ルード】東中野',
-    description: '東中野駅前のカラオケバー・ルード。テーブルチャージ500円＋1時間1,500円で飲み放題・歌い放題。お一人さまも大歓迎。営業時間18:00〜翌2:00頃、定休日：木曜・日曜。',
+    description: '東中野駅前のカラオケバー・ルード。テーブルチャージ500円＋1時間1,500円で飲み放題・歌い放題。お一人さまも大歓迎。営業時間19:00〜翌2:00頃、定休日：木曜・日曜。',
     url: 'https://rude-site.vercel.app',
     siteName: '【カラオケバー・ルード】東中野',
     locale: 'ja_JP',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: '【カラオケバー・ルード】東中野',
-    description: '東中野駅前のカラオケバー・ルード。テーブルチャージ500円＋1時間1,500円で飲み放題・歌い放題。お一人さまも大歓迎。営業時間18:00〜翌2:00頃、定休日：木曜・日曜。',
+    description: '東中野駅前のカラオケバー・ルード。テーブルチャージ500円＋1時間1,500円で飲み放題・歌い放題。お一人さまも大歓迎。営業時間19:00〜翌2:00頃、定休日：木曜・日曜。',
     site: '@rude_rockers',
     creator: '@rude_rockers',
     images: ['/images/shop/rude_site_3.jpg'],

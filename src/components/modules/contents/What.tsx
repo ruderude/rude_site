@@ -71,7 +71,7 @@ export const What = ({clickContent}: WhatProps) => {
           <span className={styles.site_link}><a href="https://line.me/R/ti/p/@857qlwqm" target="_blank" rel="noopener noreferrer">RUDE公式LINEアカウント</a></span>
           <br /><br />
           <span className={styles.shop_title}>カラオケバー・ルード</span><br />
-          営業時間：18:00〜翌2:00くらい<br />
+          営業時間：19:00〜翌2:00くらい<br />
           定休日：木曜日・日曜日<br />
           料金システム：テーブルチャージ500円、1時間ごとに1,500円の飲み放題・歌い放題（詳しくはMENUから）<br />
           住所：〒164-0003 東京都中野区東中野4丁目1-1 英ビル2階<br />

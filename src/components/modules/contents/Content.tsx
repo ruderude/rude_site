@@ -1,10 +1,9 @@
-import { useRef, useState, useEffect, memo } from "react"
+import { memo } from "react"
 import Image from 'next/image'
 import styles from './content.module.scss'
 import { ContentProps } from '@/types/types'
 
-// eslint-disable-next-line react/display-name
-export const Content = memo(({content, oddEvenType, clickContent, isActive}: ContentProps) => {
+export const Content = memo(function Content({content, oddEvenType, clickContent, isActive}: ContentProps) {
   return (
     <div
       className={`${oddEvenType ? styles.parent_left : styles.parent_right} ${styles.parent} ${isActive ? styles.active : ''}`}

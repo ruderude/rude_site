@@ -9,7 +9,7 @@ export const useContents = () => {
   const [contentType, setContentType] = useState<string>("character")
 
   // コンテンツがクリックされたら、コンテンツの表示を切り替え、コメントを返す関数
-  const changeContent = useCallback(async (type: string) => {
+  const changeContent = useCallback((type: string) => {
     // console.log("type", type)
     // キャラがクリックされたら、キャラのコメントを返す、それ以外はコンテンツの表示切替
     let comments: string[] = [];
@@ -43,7 +43,7 @@ export const useContents = () => {
           comments = super_2_Comments
         break;
       case CommentType.super_3:
-          setContentType(() => CommentType.super_2)
+          setContentType(() => CommentType.super_3)
           comments = super_3_Comments
           break;
       default:
@@ -52,9 +52,9 @@ export const useContents = () => {
         break;
     }
 
-    await setComment(() => "")
+    setComment("")
     const random = Math.floor(Math.random() * comments.length)
-    setComment(() => comments[random])
+    setComment(comments[random])
   }, [])
 
   return { comment, contentType, changeContent }

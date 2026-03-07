@@ -17,6 +17,7 @@ const galleryImages = [
   { src: '/images/shop/S__9019462-min.jpg', alt: 'RUDE内観' },
   { src: '/images/shop/S__9019465-min.jpg', alt: 'RUDE内観' },
   { src: '/images/shop/S__9068570-min.jpg', alt: 'RUDE内観' },
+  { src: '/images/shop/ai_kunshi.jpg', alt: 'RUDE内観' },
 ]
 
 export const What = ({clickContent}: WhatProps) => {
@@ -65,6 +66,9 @@ export const What = ({clickContent}: WhatProps) => {
           詳しくはMENUから→<span className={styles.site_link} onClick={() => clickContent(CommentType.menu)}>MENU</span><br /><br />
 
           また、貸切イベントをやりたい方、一日店長をやりたい方などお気軽にお問い合わせください。（定休日の木曜日・日曜日推奨）→<span className={styles.site_link} onClick={() => clickContent(CommentType.contact)}>お問い合わせ</span>
+          <br /><br />
+          また、リアルタイムで店内の混雑状況が見れる公式LINEアカウントが便利です！<br />
+          <span className={styles.site_link}><a href="https://line.me/R/ti/p/@857qlwqm" target="_blank" rel="noopener noreferrer">RUDE公式LINEアカウント</a></span>
           <br /><br />
           <span className={styles.shop_title}>カラオケバー・ルード</span><br />
           営業時間：18:00〜翌2:00くらい<br />

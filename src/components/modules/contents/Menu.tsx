@@ -1,13 +1,9 @@
-import { useRef, useState, useEffect } from "react"
-import Image from 'next/image'
 import styles from './menu.module.scss'
 import { HiOutlineInformationCircle } from 'react-icons/hi'
 import { MdLiquor, MdOutlineLiquor, MdOutlineRestaurantMenu } from 'react-icons/md'
 import { AiOutlinePayCircle } from 'react-icons/ai'
 
 export const Menu = () => {
-  const image_gaikan_1 = '/images/shop/S__8183843-min.jpg'
-
   return (<>
     <div className={styles.main}>
       <div className={styles.title_area}>

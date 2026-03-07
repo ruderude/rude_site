@@ -50,8 +50,7 @@ const staffList: Staff[] = [
   },
 ]
 
-// eslint-disable-next-line react/display-name
-export const NewsStaff = memo(() => {
+export const NewsStaff = memo(function NewsStaff() {
   const [selectedStaff, setSelectedStaff] = useState<Staff | null>(null)
 
   const closeDialog = useCallback(() => setSelectedStaff(null), [])
@@ -77,7 +76,9 @@ export const NewsStaff = memo(() => {
         <p className={styles.text}>
           カラオケ大会など、様々なイベントを開催しています。<br />
           店主のブログやTwitterでもお知らせしていますので、ぜひご覧ください。<br />
-          Twitter店主：<span className={styles.out_link}><a href="https://twitter.com/rude_rockers" target="_blank" rel="noopener noreferrer">訓志@バーテンエンジニア</a></span><br />
+          Twitter店主：<span className={styles.out_link}><a href="https://x.com/rude_rockers" target="_blank" rel="noopener noreferrer">訓志@バーテンエンジニア</a></span><br />
+          また、リアルタイムで店内の混雑状況が見れる公式LINEアカウントが便利です！<br />
+          <span className={styles.out_link}><a href="https://line.me/R/ti/p/@857qlwqm" target="_blank" rel="noopener noreferrer">RUDE公式LINEアカウント</a></span>
         </p>
       </div>
 
@@ -103,9 +104,9 @@ export const NewsStaff = memo(() => {
                 <Image
                   src={staff.image}
                   alt={staff.name}
-                  width={0}
-                  height={0}
-                  sizes="100vw"
+                  width={300}
+                  height={300}
+                  sizes="(max-width: 767px) 40vw, 20vw"
                   style={{
                     width: '100%',
                     height: '100%',
@@ -168,9 +169,9 @@ export const NewsStaff = memo(() => {
               <Image
                 src={selectedStaff.image}
                 alt={selectedStaff.name}
-                width={0}
-                height={0}
-                sizes="100vw"
+                width={300}
+                height={300}
+                sizes="60vw"
                 style={{
                   width: 'auto',
                   height: '100%',

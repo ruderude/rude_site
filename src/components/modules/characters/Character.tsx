@@ -1,62 +1,47 @@
-import { useRef, useState, useEffect } from "react"
+import { useRef, useState, useEffect, useCallback } from "react"
 import Image from 'next/image'
 import styles from './character.module.scss'
 import { motion } from 'framer-motion';
 import { CommentType } from '@/types/types'
 
-interface Params {
-  text: string
-  speed: number
-}
-
 interface Props {
-  changeContent: (type: string) => Promise<void>
+  changeContent: (type: string) => void
   comment: string
 }
 
-
-// キャラクターの名前をクラス名にしても良い
 export default function Character({ changeContent, comment }: Props) {
   const characterImg = '/images/staff/kunshi-removebg-preview.png'
   const commentArea = useRef<HTMLDivElement>(null!)
-  const [can, setCan] = useState<boolean>(true)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const params = {
-    text: comment,
-    speed: 50
-  }
+  const canRef = useRef<boolean>(true)
 
-  const typewriter = async (params: Params) => {
+  const typewriter = useCallback(async (text: string, speed: number) => {
     return new Promise(resolve => {
+      if (!commentArea.current) return resolve('end')
       commentArea.current.innerText = "";
-      let speed = params.speed;
-      let string = params.text.split("");
-      for (let index = 0; index < string.length; index++) {
-        // console.log(string[index])
-        if (index !== (string.length - 1)) {
+      const chars = text.split("");
+      for (let index = 0; index < chars.length; index++) {
+        if (index !== (chars.length - 1)) {
           setTimeout(() => {
-            commentArea.current.innerText += string[index]
+            if (commentArea.current) commentArea.current.innerText += chars[index]
           }, speed * index);
         } else {
           setTimeout(() => {
-            commentArea.current.innerText += string[index]
+            if (commentArea.current) commentArea.current.innerText += chars[index]
             resolve('end')
           }, speed * index);
         }
       }
     });
-  }
+  }, [])
 
   useEffect(() => {
-    if (can && params.text) {
-      setCan(false)
-      typewriter(params).then((result) => {
-        // console.log('typewriter end: ', result)
-        setCan(true)
+    if (canRef.current && comment) {
+      canRef.current = false
+      typewriter(comment, 50).then(() => {
+        canRef.current = true
       })
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params.text])
+  }, [comment, typewriter])
 
   return (<>
     <div className={`${styles.parent}`}>

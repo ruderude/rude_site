@@ -1,13 +1,13 @@
 "use client"
 
-import { useEffect, useState, useRef } from "react"
-import Image from 'next/image'
+import { useEffect, useState, useRef, useCallback } from "react"
 import styles from './page.module.scss'
 import Character from '@/components/modules/characters/Character'
-import { Content, What, Menu, NewsStaff, Contact, SuperBlow, FadeToBlack } from '@/components/modules/contents'
+import { Content, What, Menu, NewsStaff, Contact } from '@/components/modules/contents'
 import { useContents } from '@/hooks/useContents'
 import { CommentType } from '@/types/types'
 import { contents } from '@/data/contents'
+import HamburgerMenu from '@/components/modules/layouts/HamburgerMenu'
 import { BsFillShiftFill } from 'react-icons/bs'
 import { motion } from 'framer-motion'
 import { ToastContainer } from "react-toastify"
@@ -15,44 +15,18 @@ import 'react-toastify/dist/ReactToastify.css'
 
 export default function Home() {
   const { comment, contentType, changeContent } = useContents()
-  const [content, setContent] = useState<string>(CommentType.what);
-  const [superIn, setSuperIn] = useState<boolean>(false);
-  const [num, setNum] = useState<number>(1);
+  const [selectedContent, setSelectedContent] = useState<string>(CommentType.what);
   const contentArea = useRef<HTMLDivElement>(null)
 
   const scrollContent = () => {
     contentArea?.current?.scrollIntoView({behavior: "smooth"});
   }
 
-  const clickContent = (type: string) => {
-    setContent(type)
+  const clickContent = useCallback((type: string) => {
+    setSelectedContent(type)
     changeContent(type)
     scrollContent()
-  }
-
-  // 必殺技ボタン
-  // const clickSuper = (number: any) => {
-  //   setNum(number)
-  //   setSuperIn(true)
-  //   let comment = ''
-  //   switch (number) {
-  //     case 1:
-  //       comment = CommentType.super_1
-  //       break;
-  //     case 2:
-  //       comment = CommentType.super_2
-  //       break;
-  //     case 3:
-  //       comment = CommentType.super_3
-  //       break;
-  //     default:
-  //       comment = '必殺技です。'
-  //       break;
-  //   }
-  //   setTimeout(() => {
-  //     changeContent(comment)
-  //   }, 4000)
-  // }
+  }, [changeContent])
 
   const choiceContent = (type: string) => {
     switch (type) {
@@ -65,18 +39,6 @@ export default function Home() {
       case CommentType.contact:
         return <Contact />
     }
-
-    switch (content) {
-      case CommentType.news:
-        return <NewsStaff />
-      case CommentType.what:
-        return <What clickContent={clickContent} />
-      case CommentType.menu:
-        return <Menu />
-      case CommentType.contact:
-        return <Contact />
-    }
-
   }
 
   const scrollTop = () => {
@@ -87,30 +49,28 @@ export default function Home() {
   }
 
   useEffect(() => {
+    // 消さない
     console.log('こんなところのぞくんじゃないわよ！エッチねえ！！')
-    changeContent(content)
-  }, [])
+    changeContent(selectedContent)
+  }, [changeContent, selectedContent])
 
   return (<>
     <main>
-      {
-        superIn && <FadeToBlack num={num} setSuperIn={setSuperIn} />
-      }
+      <HamburgerMenu clickContent={clickContent} />
 
       <div className={styles.all_contents_area}>
         <div className={`${styles.parent} ${styles.contents_area}`}>
           {
-            contents.map((content, index) => {
+            contents.map((item, index) => {
               const oddEven = index % 2 === 0
               return (
                 <div className={styles.children} key={index}>
-                  <Content content={content} oddEvenType={oddEven} clickContent={clickContent} isActive={contentType === content.name} />
+                  <Content content={item} oddEvenType={oddEven} clickContent={clickContent} isActive={contentType === item.name} />
                 </div>
               )
             })
           }
         </div>
-        {/* <SuperBlow clickSuper={clickSuper} /> */}
       </div>
 
       <div className={styles.contents} ref={contentArea}>

@@ -1,6 +1,4 @@
-import React, { useRef, useState, useEffect, memo } from "react"
-import Script from 'next/script';
-import Image from 'next/image'
+import React, { memo } from "react"
 import styles from './contact.module.scss'
 import { useForm, SubmitHandler } from "react-hook-form"
 import emailjs from 'emailjs-com'
@@ -9,8 +7,7 @@ import { FiMail } from 'react-icons/fi'
 import { FormInputs } from '@/types/types'
 import { toast } from "react-toastify"
 
-// eslint-disable-next-line react/display-name
-export const Contact = memo(() => {
+export const Contact = memo(function Contact() {
 
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
   const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
@@ -19,20 +16,9 @@ export const Contact = memo(() => {
   const {
     register,
     handleSubmit,
-    watch,
+    reset,
     formState: { errors },
   } = useForm<FormInputs>()
-
-  const clearForm = () => {
-    const to_name = document.getElementById('to_name') as HTMLInputElement
-    const to_email = document.getElementById('to_email') as HTMLInputElement
-    const message = document.getElementById('message') as HTMLInputElement
-    const check = document.getElementById('check') as HTMLInputElement
-    to_name.value = ''
-    to_email.value = ''
-    message.value = ''
-    check.value = ''
-  }
 
   const sendForm: SubmitHandler<FormInputs> = (data) => {
     const check = data.check
@@ -57,9 +43,8 @@ export const Contact = memo(() => {
       )
         .then((result) => {
           toast('お問い合わせメールを送信しました！')
-          clearForm()
+          reset()
         }, (error) => {
-          // console.log(error.text)
           toast.error('メール送信に失敗しました！')
         })
     } else {
@@ -90,7 +75,9 @@ export const Contact = memo(() => {
         <p className={styles.text}>
           当店に関するお問い合わせは、以下のフォームかTwitterのDMにてお願いします。<br />
           貸切イベントをやりたい方、一日店長をやりたい方などもお気軽にお問い合わせください。（定休日の木曜日・日曜日推奨）<br /><br />
-          Twitter：<span className={styles.out_link}><a href="https://twitter.com/rude_rockers" target="_blank" rel="noopener noreferrer">訓志@バーテンエンジニア</a></span><br />
+          Twitter：<span className={styles.out_link}><a href="https://x.com/rude_rockers" target="_blank" rel="noopener noreferrer">訓志@バーテンエンジニア</a></span><br /><br />
+          また、リアルタイムで店内の混雑状況が見れる公式LINEアカウントが便利です！<br />
+          <span className={styles.out_link}><a href="https://line.me/R/ti/p/@857qlwqm" target="_blank" rel="noopener noreferrer">RUDE公式LINEアカウント</a></span>
         </p>
       </div>
 

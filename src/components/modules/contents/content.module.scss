@@ -1,5 +1,4 @@
-$accent: #e94560;
-$gold: #c9a84c;
+@use '../../../styles/variables' as *;
 
 @keyframes card-float {
   0%, 100% { transform: translateY(0); }

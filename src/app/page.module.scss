@@ -1,5 +1,4 @@
-$accent: #e94560;
-$gold: #c9a84c;
+@use '../styles/variables' as *;
 
 .all_contents_area {
   max-width: 960px;
@@ -49,20 +48,13 @@ $gold: #c9a84c;
   }
 }
 
-@media (max-width: 1024px) {
-  .parent {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-}
-
 @media (max-width: 767px) {
   .all_contents_area {
     padding: 2rem 0.75rem 1rem;
   }
 
   .parent {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
   }
 

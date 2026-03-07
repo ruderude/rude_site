@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/shop/rude_site.jpg',
+        url: '/images/shop/rude_site_3.jpg',
         width: 1200,
         height: 630,
         alt: '東中野【カラオケバー・ルード】',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description: '東中野駅前のカラオケバー・ルード。テーブルチャージ500円＋1時間1,500円で飲み放題・歌い放題。お一人さまも大歓迎。営業時間18:00〜翌2:00頃、定休日：木曜・日曜。',
     site: '@rude_rockers',
     creator: '@rude_rockers',
-    images: ['/images/shop/rude_site.jpg'],
+    images: ['/images/shop/rude_site_3.jpg'],
   },
   verification: {
     google: 'E0WjjvGn8lXWZM6LFDUjpoNnNkqUE5bQCSbmX1mzq_A',

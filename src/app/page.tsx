@@ -17,21 +17,23 @@ export default function Home() {
   const { comment, contentType, changeContent } = useContents()
   const [selectedContent, setSelectedContent] = useState<string>(CommentType.what);
   const contentArea = useRef<HTMLDivElement>(null)
+  const shouldScroll = useRef(false)
 
-  const scrollContent = () => {
-    if (contentArea.current) {
+  const clickContent = useCallback((type: string) => {
+    setSelectedContent(type)
+    changeContent(type)
+    shouldScroll.current = true
+  }, [changeContent])
+
+  useEffect(() => {
+    if (shouldScroll.current && contentArea.current) {
+      shouldScroll.current = false
       const header = document.querySelector('header');
       const headerHeight = header ? header.offsetHeight : 0;
       const top = contentArea.current.getBoundingClientRect().top + window.scrollY - headerHeight;
       window.scrollTo({ top, behavior: 'smooth' });
     }
-  }
-
-  const clickContent = useCallback((type: string) => {
-    setSelectedContent(type)
-    changeContent(type)
-    scrollContent()
-  }, [changeContent])
+  }, [contentType])
 
   const choiceContent = (type: string) => {
     switch (type) {

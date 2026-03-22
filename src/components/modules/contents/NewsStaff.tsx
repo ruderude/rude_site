@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useCallback, memo } from "react"
+import React, { useState, useCallback, useEffect, memo } from "react"
 import Image from 'next/image'
 import styles from './newsstaff.module.scss'
 import { HiOutlineNewspaper } from 'react-icons/hi'
@@ -14,6 +14,8 @@ interface Staff {
   word: string
   color: string
 }
+
+const SEAT_WATCH_URL = 'https://rude-karaoke.com/api/seat-watch/image/shop_20260321173046_c08d4ba6'
 
 const staffList: Staff[] = [
   {
@@ -52,8 +54,17 @@ const staffList: Staff[] = [
 
 export const NewsStaff = memo(function NewsStaff() {
   const [selectedStaff, setSelectedStaff] = useState<Staff | null>(null)
-
   const closeDialog = useCallback(() => setSelectedStaff(null), [])
+  const [seatImageStatus, setSeatImageStatus] = useState<'loading' | 'loaded' | 'error'>('loading')
+  const [seatImageSrc, setSeatImageSrc] = useState(SEAT_WATCH_URL)
+
+  useEffect(() => {
+    setSeatImageStatus('loading')
+    const img = new window.Image()
+    img.onload = () => setSeatImageStatus('loaded')
+    img.onerror = () => setSeatImageStatus('error')
+    img.src = seatImageSrc
+  }, [seatImageSrc])
 
   return (<>
     <div className={styles.main}>
@@ -118,6 +129,30 @@ export const NewsStaff = memo(function NewsStaff() {
             </motion.div>
           ))}
         </div>
+      </div>
+
+      <br />
+
+      <div className={styles.seat_watch}>
+        <h3 className={styles.seat_watch_title}>現在の店内状況</h3>
+        {seatImageStatus === 'loading' && (
+          <div className={styles.seat_watch_placeholder}>読み込み中...</div>
+        )}
+        {seatImageStatus === 'error' && (
+          <div className={styles.seat_watch_placeholder}>
+            <p>画像を取得できませんでした</p>
+            <button className={styles.seat_watch_retry} onClick={() => setSeatImageSrc(SEAT_WATCH_URL + '?t=' + Date.now())}>
+              再読み込み
+            </button>
+          </div>
+        )}
+        {seatImageStatus === 'loaded' && (
+          <img
+            className={styles.seat_watch_image}
+            src={seatImageSrc}
+            alt="混雑状況"
+          />
+        )}
       </div>
 
       <br />

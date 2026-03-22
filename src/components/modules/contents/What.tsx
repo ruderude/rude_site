@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback } from "react"
+import { useState, useCallback, useEffect } from "react"
 import Image from 'next/image'
 import styles from './what.module.scss'
 import { Map } from '@/components/blocks'
@@ -20,10 +20,22 @@ const galleryImages = [
   { src: '/images/shop/ai_kunshi.jpg', alt: 'RUDE内観' },
 ]
 
+const SEAT_WATCH_URL = 'https://rude-karaoke.com/api/seat-watch/image/shop_20260321173046_c08d4ba6'
+
 export const What = ({clickContent}: WhatProps) => {
   const image_gaikan_1 = '/images/shop/S__8183843-min.jpg'
   const [selectedImage, setSelectedImage] = useState<typeof galleryImages[number] | null>(null)
   const closeDialog = useCallback(() => setSelectedImage(null), [])
+  const [seatImageStatus, setSeatImageStatus] = useState<'loading' | 'loaded' | 'error'>('loading')
+  const [seatImageSrc, setSeatImageSrc] = useState(SEAT_WATCH_URL)
+
+  useEffect(() => {
+    setSeatImageStatus('loading')
+    const img = new window.Image()
+    img.onload = () => setSeatImageStatus('loaded')
+    img.onerror = () => setSeatImageStatus('error')
+    img.src = seatImageSrc
+  }, [seatImageSrc])
 
 
   return (<>
@@ -44,6 +56,27 @@ export const What = ({clickContent}: WhatProps) => {
       </div>
 
       <br />
+      <div className={styles.seat_watch}>
+        <h3 className={styles.seat_watch_title}>現在の店内状況</h3>
+        {seatImageStatus === 'loading' && (
+          <div className={styles.seat_watch_placeholder}>読み込み中...</div>
+        )}
+        {seatImageStatus === 'error' && (
+          <div className={styles.seat_watch_placeholder}>
+            <p>画像を取得できませんでした</p>
+            <button className={styles.seat_watch_retry} onClick={() => setSeatImageSrc(SEAT_WATCH_URL + '?t=' + Date.now())}>
+              再読み込み
+            </button>
+          </div>
+        )}
+        {seatImageStatus === 'loaded' && (
+          <img
+            className={styles.seat_watch_image}
+            src={seatImageSrc}
+            alt="混雑状況"
+          />
+        )}
+      </div>
 
       <div>
         <div className={styles.text}>

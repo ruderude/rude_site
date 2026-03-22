@@ -105,6 +105,57 @@
   }
 }
 
+// ── Seat Watch ──
+
+.seat_watch {
+  max-width: 640px;
+  margin: 0 auto;
+  background: $surface;
+  border: 1px solid rgba($gold, 0.12);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.seat_watch_title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: $gold;
+  margin-bottom: 1rem;
+  letter-spacing: 0.04em;
+}
+
+.seat_watch_image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+.seat_watch_placeholder {
+  padding: 2rem 1rem;
+  color: $text-muted;
+  font-size: 0.95rem;
+}
+
+.seat_watch_retry {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1.25rem;
+  background: transparent;
+  border: 1px solid rgba($accent, 0.5);
+  border-radius: 8px;
+  color: $accent;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s;
+
+  &:hover {
+    background: rgba($accent, 0.1);
+    border-color: $accent;
+  }
+}
+
 // ── Gallery Grid ──
 
 .gallery_grid {

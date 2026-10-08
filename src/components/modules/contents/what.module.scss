@@ -105,6 +105,35 @@
   }
 }
 
+.shop_info {
+  display: grid;
+  grid-template-columns: 6.5em 1fr;
+  gap: 0.35rem 1rem;
+  margin-top: 0.75rem;
+
+  dt {
+    color: $gold;
+    font-weight: 700;
+  }
+
+  dd {
+    color: $text-body;
+  }
+}
+
+.access_list {
+  margin-top: 0.75rem;
+  list-style: disc;
+  padding-left: 1.4em;
+}
+
+.text_title_center {
+  color: $gold;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
 // ── Gallery Grid ──
 
 .gallery_grid {
@@ -116,6 +145,9 @@
 }
 
 .gallery_item {
+  display: block;
+  width: 100%;
+  padding: 0;
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
@@ -282,6 +314,15 @@
 
   .big_text {
     font-size: 1.25rem;
+  }
+
+  .shop_info {
+    grid-template-columns: 1fr;
+    gap: 0 0;
+
+    dd {
+      margin-bottom: 0.5rem;
+    }
   }
 
   .gallery_grid {

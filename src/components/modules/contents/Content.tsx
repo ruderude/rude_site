@@ -1,21 +1,25 @@
 import { memo } from "react"
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from './content.module.scss'
 import { ContentProps } from '@/types/types'
 
-export const Content = memo(function Content({content, oddEvenType, clickContent, isActive}: ContentProps) {
+export const Content = memo(function Content({content, oddEvenType, isActive}: ContentProps) {
   return (
-    <div
+    <Link
+      href={content.href}
+      scroll={false}
       className={`${oddEvenType ? styles.parent_left : styles.parent_right} ${styles.parent} ${isActive ? styles.active : ''}`}
-      onClick={() => clickContent(content.name)}
+      aria-current={isActive ? 'page' : undefined}
     >
       <div className={styles.image}>
         <Image
           src={content.image}
-          alt="コンテンツ"
+          alt={content.alt}
           width={400}
           height={400}
-          sizes="auto"
+          sizes="(max-width: 767px) 50vw, 230px"
+          preload
           style={{
             width: '100%',
             height: 'auto',
@@ -36,6 +40,6 @@ export const Content = memo(function Content({content, oddEvenType, clickContent
           </div>
         )}
       </div>
-    </div>
+    </Link>
   )
 })

@@ -1,0 +1,59 @@
+@use '../../../styles/variables' as *;
+
+.footer {
+  border-top: 1px solid $border-gold;
+  background: $surface;
+  // 画面下に固定されたキャラクターに隠れないよう余白をとる
+  padding: 2.5rem 2rem 220px;
+  color: $text-secondary;
+  font-size: 0.85rem;
+  line-height: 1.9;
+}
+
+.inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.shop_name {
+  color: $gold;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+}
+
+.address {
+  font-style: normal;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+
+  a {
+    color: $text-body;
+    text-decoration: underline;
+    text-decoration-color: rgba(201, 168, 76, 0.4);
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $gold-light;
+    }
+  }
+}
+
+.copyright {
+  color: $text-muted;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 767px) {
+  .footer {
+    padding: 2rem 1rem 150px;
+  }
+}

@@ -2,97 +2,103 @@ import styles from './menu.module.scss'
 import { HiOutlineInformationCircle } from 'react-icons/hi'
 import { MdLiquor, MdOutlineLiquor, MdOutlineRestaurantMenu } from 'react-icons/md'
 import { AiOutlinePayCircle } from 'react-icons/ai'
+import { drinkSections, MenuSection } from '@/data/menu'
+import { SHOP, yen } from '@/lib/site'
+
+const DrinkSection = ({ section }: { section: MenuSection }) => (
+  <section className={styles.drink_section}>
+    <h3 className={styles.drink_title}>▼{section.name}</h3>
+    <p>{section.description}</p>
+    {section.items.some((item) => item.price) && (
+      <ul className={styles.price_list}>
+        {section.items.map((item) => (
+          <li key={item.name}>
+            <span>{item.name}</span>
+            {item.price && <span className={styles.price}>{yen(item.price)}</span>}
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+)
 
 export const Menu = () => {
+  const included = drinkSections.filter((section) => section.included)
+  const extra = drinkSections.filter((section) => !section.included)
+
   return (<>
     <div className={styles.main}>
       <div className={styles.title_area}>
-        <h1 className={styles.title}>
+        <p className={styles.title}>
           <HiOutlineInformationCircle color={'#e94560'} />
           Menu
-        </h1>
+        </p>
       </div>
 
       <br />
 
       <div className={styles.sub_title_area}>
-        <h2 className={styles.sub_title}>
-          東中野にあるカラオケバー・ルード：メニュー
-        </h2>
+        <h1 className={styles.sub_title}>
+          東中野にあるカラオケバー・ルード：メニュー・料金システム
+        </h1>
       </div>
 
       <br />
 
       <div>
         <div className={styles.text}>
-          <span className={styles.menu_title}><MdOutlineRestaurantMenu />システム</span><br /><br />
+          <h2 className={styles.menu_title}><MdOutlineRestaurantMenu />システム</h2>
           <div className={styles.text_detail}>
             ※喫煙可
           </div>
           <div className={styles.text_price}>
             テーブルチャージ：<span className={styles.big_text}>500円</span> <br />
             １時間：<span className={styles.big_text}>1,500円</span>
-          </div><br />
+          </div>
 
-          　入店時に発生するテーブルチャージが<b>500円</b>。<br />
-          その後1時間ごとに<b>1,500円</b>が追加されます。<br /><br />
+          <p>
+            　入店時に発生するテーブルチャージが<b>500円</b>。<br />
+            その後1時間ごとに<b>1,500円</b>が追加されます。
+          </p>
 
-          例）入店し、1時間以内に退店した場合、2,000円のお会計となります。<br />
-          例）2時間滞在した場合、3,500円のお会計となります。<br /><br />
+          <table className={styles.example_table}>
+            <caption>お会計の目安</caption>
+            <thead>
+              <tr><th scope="col">滞在時間</th><th scope="col">お会計</th></tr>
+            </thead>
+            <tbody>
+              {[1, 2, 3].map((hours) => (
+                <tr key={hours}>
+                  <td>{hours}時間{hours === 1 ? '以内' : ''}</td>
+                  <td>{yen(SHOP.price.tableCharge + SHOP.price.perHour * hours)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
 
-          飲み物は、飲み放題（テキーラなど一部追い金アリ）<br /><br />
+          <ul className={styles.notes}>
+            <li>飲み物は飲み放題（テキーラなど一部追い金アリ）</li>
+            <li>カラオケは歌い放題</li>
+            <li>お通しにスナックなど乾き物がでます（おかわり自由）</li>
+            <li>基本的にフードメニューはありません</li>
+            <li>食べ物の持ち込み可能です（持ち込み料無料）</li>
+          </ul>
 
-          カラオケは歌い放題となります。<br /><br />
+          <h2 className={styles.menu_title}><MdLiquor />ドリンクメニュー（飲み放題）</h2>
+          <p>※割もの代・ソフトドリンクは飲み放題に入っています。</p>
+          {included.map((section) => (
+            <DrinkSection key={section.name} section={section} />
+          ))}
 
-          ・お通しにスナックなど乾き物がでます（おかわり自由）<br />
-          ・基本的にフードメニューはありません。<br />
-          ・食べ物の持ち込み可能です。（持ち込み料無料です）<br /><br />
+          <h2 className={styles.menu_title}><MdOutlineLiquor />別料金メニュー</h2>
+          {extra.map((section) => (
+            <DrinkSection key={section.name} section={section} />
+          ))}
 
-          <span className={styles.menu_title}><MdLiquor />ドリンクメニュー</span><br /><br />
-
-          ※割もの代・ソフトドリンクは飲み放題に入っています。<br /><br />
-
-          <span className={styles.drink_title}>▼焼酎</span><br />
-          鏡月、いいちこ、黒霧島などが飲み放題です。<br /><br />
-
-          <span className={styles.drink_title}>▼ビール</span><br />
-          瓶ビールが飲み放題となっております。<br /><br />
-
-          <span className={styles.drink_title}>▼ウイスキー・バーボン</span><br />
-          角、ジャックダニエル、ジムビームが飲み放題になります。<br /><br />
-
-          <span className={styles.drink_title}>▼テキーラ（別料金）</span><br />
-          イエガー・マイスター　500円<br />
-          クエルボ・シルバー　500円<br />
-          クエルボ・ゴールド　500円<br />
-          クエルボ1800　1,000円<br /><br />
-
-          <span className={styles.drink_title}>▼その他カクテル</span><br />
-          店内にあるリキュールからお好みのカクテルを注文できます。<br />
-          飲み放題に入ります。<br /><br />
-
-          <span className={styles.drink_title}>▼ワイン・シャンパン</span><br />
-          グラスの赤ワインが飲み放題に入っています。<br />
-          その他、ボトルの赤・白ワイン、スパークリングワイン、シャンパンなどについては以下の追加料金となります。<br /><br />
-
-          <span className={styles.menu_title}><MdOutlineLiquor />ボトルメニュー</span><br /><br />
-          ・ボトルワイン（赤・白）：5,000円<br />
-          ・スパークリングワイン：6,000円<br />
-          ・モエ・シャンドン・白：16,000円<br />
-          ・ヴーヴ・クリコ・イエロー：18,000円<br />
-          ・モエ・シャンドン・ロゼ：18,000円<br /><br />
-
-          <span className={styles.drink_title}>▼スタッフへのドリンク</span><br />
-          ありがたく頂戴します。<br />
-          １杯あたり1,000円になります。<br /><br />
-
-
-          <span className={styles.menu_title}><AiOutlinePayCircle />支払い</span><br /><br />
-          現金払いのほか、カード決済、PayPayでの決済がご利用できます。<br />
+          <h2 className={styles.menu_title}><AiOutlinePayCircle />支払い</h2>
+          <p>現金払いのほか、カード決済、PayPayでの決済がご利用できます。</p>
         </div>
       </div>
     </div>
   </>)
 }
-
-

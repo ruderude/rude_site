@@ -42,6 +42,11 @@
   border-bottom: 2px solid rgba(233, 69, 96, 0.3);
   padding-bottom: 3px;
   letter-spacing: 0.03em;
+  margin: 2.5rem 0 1rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 .text {
@@ -86,6 +91,57 @@
   font-weight: 700;
   color: $gold;
   letter-spacing: 0.02em;
+}
+
+.drink_section {
+  margin: 1.25rem 0;
+}
+
+.price_list {
+  margin-top: 0.25rem;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+  }
+}
+
+.price {
+  color: $gold-light;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.example_table {
+  width: 100%;
+  margin: 1rem 0;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+
+  caption {
+    text-align: left;
+    color: $gold;
+    font-weight: 700;
+  }
+
+  th,
+  td {
+    padding: 0.3rem 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: left;
+  }
+
+  th {
+    color: $text-muted;
+    font-weight: 500;
+  }
+}
+
+.notes {
+  list-style: disc;
+  padding-left: 1.4em;
 }
 
 @media (max-width: 767px) {

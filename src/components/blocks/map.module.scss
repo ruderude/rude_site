@@ -28,4 +28,11 @@
   font-size: 0.92rem;
   line-height: 1.7;
   letter-spacing: 0.02em;
+  font-style: normal;
+
+  a {
+    color: #e94560;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
 }

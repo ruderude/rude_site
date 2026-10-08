@@ -51,10 +51,10 @@ export default function Character({ changeContent, comment }: Props) {
       <div className={`${styles.character}`} onClick={() => changeContent(CommentType.character)} >
         <Image
           src={characterImg}
-          alt="画像"
+          alt="店主くんしのキャラクター"
           width={400}
           height={400}
-          sizes="auto"
+          sizes="(max-width: 767px) 80px, 160px"
           style={{
             width: 'auto',
             height: '100%',

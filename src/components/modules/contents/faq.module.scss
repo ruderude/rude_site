@@ -1,0 +1,96 @@
+@use '../../../styles/variables' as *;
+
+.main {
+  color: $text-primary;
+  text-align: center;
+}
+
+.title_area {
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: $gold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sub_title_area {
+  margin-bottom: 2rem;
+}
+
+.sub_title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: $text-muted;
+  letter-spacing: 0.06em;
+}
+
+.list {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.item {
+  background: $surface;
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  border-radius: 14px;
+  padding: 1.1rem 1.4rem;
+}
+
+.question {
+  cursor: pointer;
+  list-style: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  h2 {
+    display: inline;
+    color: $gold;
+    font-size: 1.02rem;
+    font-weight: 700;
+  }
+}
+
+.answer {
+  margin-top: 0.5rem;
+  color: $text-body;
+  line-height: 1.95;
+}
+
+.more {
+  margin-top: 2rem;
+  color: $text-secondary;
+
+  a {
+    color: $accent;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(233, 69, 96, 0.4);
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .sub_title {
+    font-size: 0.9rem;
+  }
+
+  .item {
+    padding: 0.9rem 1rem;
+  }
+}

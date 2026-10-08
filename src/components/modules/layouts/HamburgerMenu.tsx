@@ -1,13 +1,12 @@
 "use client"
 
 import { useState, useCallback, useEffect } from "react"
+import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import styles from "./hamburgermenu.module.scss"
-import { contents } from "@/data/contents"
+import { pages } from "@/data/contents"
 
-interface Props {
-  clickContent: (type: string) => void
-}
+const MotionLink = motion.create(Link)
 
 const neonColors = [
   "#ff0080", "#00ffff", "#ff00ff", "#00ff80",
@@ -89,7 +88,7 @@ const titleVariants = {
   },
 }
 
-export default function HamburgerMenu({ clickContent }: Props) {
+export default function HamburgerMenu() {
   const [open, setOpen] = useState(false)
 
   const toggle = useCallback(() => setOpen((prev) => !prev), [])
@@ -102,17 +101,15 @@ export default function HamburgerMenu({ clickContent }: Props) {
     return () => document.removeEventListener("keydown", handleKeyDown)
   }, [open])
 
-  const handleClick = (name: string) => {
-    clickContent(name)
-    setOpen(false)
-  }
+  const close = () => setOpen(false)
 
   return (
     <>
       <button
         className={`${styles.burger} ${open ? styles.open : ""}`}
         onClick={toggle}
-        aria-label="メニューを開く"
+        aria-label={open ? "メニューを閉じる" : "メニューを開く"}
+        aria-expanded={open}
       >
         <span />
         <span />
@@ -185,14 +182,16 @@ export default function HamburgerMenu({ clickContent }: Props) {
               animate="visible"
               exit="exit"
             >
-              {contents.map((item, index) => {
+              {pages.map((item, index) => {
                 const neon = neonColors[index % neonColors.length]
                 return (
-                  <motion.button
-                    key={item.name}
+                  <MotionLink
+                    key={item.href}
+                    href={item.href}
+                    scroll={false}
                     className={styles.menu_item}
                     variants={itemVariants}
-                    onClick={() => handleClick(item.name)}
+                    onClick={close}
                     whileHover={{
                       scale: 1.08,
                       x: 10,
@@ -238,7 +237,7 @@ export default function HamburgerMenu({ clickContent }: Props) {
                     >
                       →
                     </motion.div>
-                  </motion.button>
+                  </MotionLink>
                 )
               })}
             </motion.nav>

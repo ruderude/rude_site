@@ -32,7 +32,8 @@ export default function Header() {
       <div className={styles.bg_flash} />
       <div className={styles.scanlines} />
 
-      <h1 className={styles.title}>
+      <p className={styles.title}>
+        <span className="sr_only">東中野のカラオケバー・ルード（RUDE）</span>
         {titleArray.map((char, index) => {
           const color1 = neonColors[index % neonColors.length];
           const color2 = neonColors[(index + 3) % neonColors.length];
@@ -41,6 +42,7 @@ export default function Header() {
             <motion.span
               key={index}
               className={styles.char}
+              aria-hidden
               initial={{
                 y: -200,
                 opacity: 0,
@@ -115,7 +117,7 @@ export default function Header() {
             </motion.span>
           );
         })}
-      </h1>
+      </p>
 
       <div className={styles.shine_sweep} />
 

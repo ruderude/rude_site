@@ -1,3 +1,5 @@
+"use client"
+
 import React, { memo } from "react"
 import styles from './contact.module.scss'
 import { useForm, SubmitHandler } from "react-hook-form"
@@ -6,6 +8,7 @@ import { Map } from '@/components/blocks'
 import { FiMail } from 'react-icons/fi'
 import { FormInputs } from '@/types/types'
 import { toast } from "react-toastify"
+import { SHOP } from '@/lib/site'
 
 export const Contact = memo(function Contact() {
 
@@ -56,18 +59,18 @@ export const Contact = memo(function Contact() {
   return (<>
     <div className={styles.main}>
       <div className={styles.title_area}>
-        <h1 className={styles.title}>
+        <p className={styles.title}>
           <FiMail color={'#e94560'} />
           Contact
-        </h1>
+        </p>
       </div>
 
       <br />
 
       <div className={styles.sub_title_area}>
-        <h2 className={styles.sub_title}>
-        東中野にあるカラオケバー・ルード：お問い合わせ
-        </h2>
+        <h1 className={styles.sub_title}>
+        東中野にあるカラオケバー・ルード：お問い合わせ・アクセス
+        </h1>
       </div>
 
       <br />
@@ -76,13 +79,17 @@ export const Contact = memo(function Contact() {
         <p className={styles.text}>
           当店に関するお問い合わせは、以下のフォームかTwitterのDMにてお願いします。<br />
           貸切イベントをやりたい方、一日店長をやりたい方などもお気軽にお問い合わせください。（定休日の木曜日・日曜日推奨）<br /><br />
-          Twitter：<span className={styles.out_link}><a href="https://x.com/rude_rockers" target="_blank" rel="noopener noreferrer">訓志@バーテンエンジニア</a></span><br /><br />
+          Twitter：<span className={styles.out_link}><a href={SHOP.links.x} target="_blank" rel="noopener noreferrer">訓志@バーテンエンジニア</a></span><br /><br />
           また、リアルタイムで店内の混雑状況が見れる公式LINEアカウントが便利です！<br />
-          <span className={styles.out_link}><a href="https://line.me/R/ti/p/@857qlwqm" target="_blank" rel="noopener noreferrer">RUDE公式LINEアカウント</a></span>
+          <span className={styles.out_link}><a href={SHOP.links.line} target="_blank" rel="noopener noreferrer">RUDE公式LINEアカウント</a></span>
         </p>
       </div>
 
       <br />
+
+      <h2 className='page_title'>
+        アクセス
+      </h2>
 
       <Map />
 
@@ -104,6 +111,7 @@ export const Contact = memo(function Contact() {
                   <input
                     id="to_name"
                     type="text"
+                    autoComplete="name"
                     placeholder="山田 太郎"
                     {...register("to_name", {
                       required: {
@@ -132,7 +140,8 @@ export const Contact = memo(function Contact() {
                 <td className={styles.form_body}>
                   <input
                     id="to_email"
-                    type="text"
+                    type="email"
+                    autoComplete="email"
                     placeholder="info@email.com"
                     {...register("to_email", {
                       required: {
@@ -163,7 +172,7 @@ export const Contact = memo(function Contact() {
 
               <tr>
                 <td className={styles.form_item}>
-                  <label>本文 <span className={styles.badge}>必須</span></label>
+                  <label htmlFor="message">本文 <span className={styles.badge}>必須</span></label>
                 </td>
                 <td className={styles.form_body}>
                   <textarea
@@ -195,6 +204,9 @@ export const Contact = memo(function Contact() {
             <input
               id="check"
               type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden
               className={styles.hidden}
               {...register("check", {
                 maxLength: {

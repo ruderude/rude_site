@@ -545,3 +545,31 @@
     }
   }
 }
+
+// ── News ──
+
+.news_section {
+  margin-top: 2.5rem;
+}
+
+.news_list {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: left;
+
+  li {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+.news_date {
+  color: $text-muted;
+  font-size: 0.85rem;
+}
+
+.news_title {
+  color: $gold;
+  font-weight: 700;
+  font-size: 1.05rem;
+}

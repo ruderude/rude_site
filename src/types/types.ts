@@ -4,6 +4,7 @@ export const CommentType = {
   what: "what",
   menu: "menu",
   contact: "contact",
+  faq: "faq",
   super_1: "super_1",
   super_2: "super_2",
   super_3: "super_3",
@@ -12,17 +13,14 @@ export const CommentType = {
 export interface ContentProps {
   content: {
     name: string
+    href: string
     text: string
     detail: string
     image: string
+    alt: string
   }
   oddEvenType: boolean
-  clickContent: (event: any) => void
   isActive?: boolean
-}
-
-export interface WhatProps {
-  clickContent: (name: string) => void
 }
 
 export interface FormInputs {

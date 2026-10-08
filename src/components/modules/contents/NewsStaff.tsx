@@ -5,6 +5,8 @@ import Image from 'next/image'
 import styles from './newsstaff.module.scss'
 import { HiOutlineNewspaper } from 'react-icons/hi'
 import { motion, AnimatePresence } from 'framer-motion'
+import { news } from '@/data/news'
+import { SHOP } from '@/lib/site'
 
 interface Staff {
   name: string
@@ -57,29 +59,44 @@ export const NewsStaff = memo(function NewsStaff() {
   return (<>
     <div className={styles.main}>
       <div className={styles.title_area}>
-        <h1 className={styles.title}>
+        <p className={styles.title}>
           <HiOutlineNewspaper color={'#c9a84c'} />
           News
-        </h1>
+        </p>
       </div>
 
       <br />
 
       <div className={styles.sub_title_area}>
-        <h2 className={styles.sub_title}>
-        店舗イベント、その他のお知らせはこちらから
-        </h2>
+        <h1 className={styles.sub_title}>
+        東中野のカラオケバー・ルード：イベント・お知らせとスタッフ紹介
+        </h1>
       </div>
 
       <div>
         <p className={styles.text}>
           カラオケ大会など、様々なイベントを開催しています。<br />
           店主のブログやTwitterでもお知らせしていますので、ぜひご覧ください。<br />
-          Twitter店主：<span className={styles.out_link}><a href="https://x.com/rude_rockers" target="_blank" rel="noopener noreferrer">訓志@バーテンエンジニア</a></span><br />
+          Twitter店主：<span className={styles.out_link}><a href={SHOP.links.x} target="_blank" rel="noopener noreferrer">訓志@バーテンエンジニア</a></span><br />
           また、リアルタイムで店内の混雑状況が見れる公式LINEアカウントが便利です！<br />
-          <span className={styles.out_link}><a href="https://line.me/R/ti/p/@857qlwqm" target="_blank" rel="noopener noreferrer">RUDE公式LINEアカウント</a></span>
+          <span className={styles.out_link}><a href={SHOP.links.line} target="_blank" rel="noopener noreferrer">RUDE公式LINEアカウント</a></span>
         </p>
       </div>
+
+      {news.length > 0 && (
+        <section className={styles.news_section}>
+          <h2 className={styles.staff_heading}>お知らせ</h2>
+          <ul className={styles.news_list}>
+            {news.map((item) => (
+              <li key={`${item.date}-${item.title}`}>
+                <time dateTime={item.date} className={styles.news_date}>{item.date.replaceAll('-', '.')}</time>
+                <h3 className={styles.news_title}>{item.title}</h3>
+                <p>{item.body}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <br />
 
@@ -89,6 +106,14 @@ export const NewsStaff = memo(function NewsStaff() {
           {staffList.map((staff, i) => (
             <motion.div
               key={staff.name}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  setSelectedStaff(staff)
+                }
+              }}
               className={styles.staff_card}
               style={{ background: staff.color }}
               onClick={() => setSelectedStaff(staff)}
@@ -102,7 +127,7 @@ export const NewsStaff = memo(function NewsStaff() {
               <div className={styles.staff_image_wrap}>
                 <Image
                   src={staff.image}
-                  alt={staff.name}
+                  alt={`スタッフ ${staff.name}`}
                   width={300}
                   height={300}
                   sizes="(max-width: 767px) 40vw, 20vw"
@@ -113,7 +138,15 @@ export const NewsStaff = memo(function NewsStaff() {
                   }}
                 />
               </div>
-              <div className={styles.staff_name}>{staff.name}</div>
+              <h3 className={styles.staff_name}>{staff.name}</h3>
+              <dl className="sr_only">
+                <dt>好きなお酒</dt>
+                <dd>{staff.drink}</dd>
+                <dt>よく歌う曲</dt>
+                <dd>{staff.song}</dd>
+                <dt>ひとこと</dt>
+                <dd>{staff.word}</dd>
+              </dl>
             </motion.div>
           ))}
         </div>
@@ -133,6 +166,9 @@ export const NewsStaff = memo(function NewsStaff() {
         >
           <motion.div
             className={styles.dialog}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`スタッフ紹介：${selectedStaff.name}`}
             style={{ background: selectedStaff.color }}
             initial={{ scale: 0.8, opacity: 0, y: 80 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -156,7 +192,7 @@ export const NewsStaff = memo(function NewsStaff() {
                 </span>
               ))}
             </div>
-            <button className={styles.close_btn} onClick={closeDialog}>
+            <button className={styles.close_btn} onClick={closeDialog} aria-label="閉じる">
               &times;
             </button>
             <motion.div
@@ -167,7 +203,7 @@ export const NewsStaff = memo(function NewsStaff() {
             >
               <Image
                 src={selectedStaff.image}
-                alt={selectedStaff.name}
+                alt={`スタッフ ${selectedStaff.name}`}
                 width={300}
                 height={300}
                 sizes="60vw"
@@ -187,14 +223,14 @@ export const NewsStaff = memo(function NewsStaff() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.5, ease: 'easeOut' }}
             >
-              <motion.h3
+              <motion.p
                 className={styles.dialog_name}
                 initial={{ opacity: 0, scale: 0.5, y: -15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ delay: 0.25, type: 'spring', stiffness: 350, damping: 18 }}
               >
                 {selectedStaff.name}
-              </motion.h3>
+              </motion.p>
               <div className={styles.dialog_eq}>
                 <span /><span /><span /><span /><span /><span /><span />
               </div>
